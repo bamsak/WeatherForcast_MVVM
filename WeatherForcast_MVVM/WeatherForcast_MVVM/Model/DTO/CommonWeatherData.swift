@@ -5,6 +5,7 @@
 //  Created by BOMBSGIE on 5/6/24.
 //
 
+typealias CommonWeatherData = DTO.CommonWeatherData
 /// DTO NameSpace
 enum DTO { 
     /// Model for both current and weekly weather
@@ -56,6 +57,12 @@ extension DTO.CommonWeatherData {
 }
 
 extension DTO.CommonWeatherData {
+    struct Clouds: Decodable {
+        let all: Int
+    }
+}
+
+extension DTO.CommonWeatherData {
     struct Wind: Decodable {
         let speed: Double
         let direction: Int
@@ -91,3 +98,4 @@ extension DTO.CommonWeatherData {
         }
     }
 }
+
