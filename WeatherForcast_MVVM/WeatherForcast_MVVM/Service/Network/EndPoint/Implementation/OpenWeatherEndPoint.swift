@@ -30,7 +30,7 @@ extension OpenWeatherEndPoint: APIEndPoint {
             switch self {
             case .current(latitude: let latitude, longitude: let longitude),
                     .weekly(latitude: let latitude, longitude: let longitude):
-                guard let apiKey =  Bundle.main.object(forInfoDictionaryKey: "OpenWeatherAPIKey") as? String
+                guard let apiKey = self.apiKey
                 else {
                     throw NetworkError.notFoundAPIKey
                 }
@@ -52,5 +52,13 @@ private extension OpenWeatherEndPoint {
         case .weekly:
             return "forecast"
         }
+    }
+    
+    private var apiKey: String? {
+        guard let apiKey =  Bundle.main.object(forInfoDictionaryKey: "OpenWeatherAPIKey") as? String
+        else {
+            return nil
+        }
+        return apiKey
     }
 }
