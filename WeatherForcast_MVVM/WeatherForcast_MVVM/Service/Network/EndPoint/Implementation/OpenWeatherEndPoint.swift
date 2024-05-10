@@ -40,6 +40,10 @@ extension OpenWeatherEndPoint: APIEndPoint {
             }
         }
     }
+    
+    var httpMethod: HTTPMethod {
+        return .get
+    }
 }
 
 // MARK: - private

@@ -12,4 +12,5 @@ protocol APIEndPoint {
     var host: String { get }
     var path: String { get }
     var queries: [URLQueryItem]? { get throws }
+    var httpMethod: HTTPMethod { get }
 }
