@@ -49,7 +49,7 @@ extension OpenWeatherEndPoint: APIEndPoint {
 // MARK: - private
 
 private extension OpenWeatherEndPoint {
-    private var pathType: String {
+    var pathType: String {
         switch self {
         case .current:
             return "weather"
@@ -58,7 +58,7 @@ private extension OpenWeatherEndPoint {
         }
     }
     
-    private var apiKey: String? {
+    var apiKey: String? {
         guard let apiKey =  Bundle.main.object(forInfoDictionaryKey: "OpenWeatherAPIKey") as? String
         else {
             return nil
