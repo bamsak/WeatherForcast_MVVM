@@ -18,6 +18,7 @@
 		7F2AAB2A2BEE4CAF002B9A6B /* OpenWeatherEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2AAB292BEE4CAF002B9A6B /* OpenWeatherEndPoint.swift */; };
 		7F2AAB2C2BEE5312002B9A6B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2AAB2B2BEE5312002B9A6B /* HTTPMethod.swift */; };
 		7F769C7A2BEA581A00321EE5 /* WeeklyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F769C792BEA581A00321EE5 /* WeeklyWeather.swift */; };
+		7F8CF87C2BF0DDF40025D7EE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8CF87B2BF0DDF40025D7EE /* NetworkService.swift */; };
 		7FEEB7012BE8B671006AC640 /* CommonWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEB7002BE8B671006AC640 /* CommonWeatherData.swift */; };
 		7FEEB7032BE8B713006AC640 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEB7022BE8B713006AC640 /* CurrentWeather.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		7F2AAB292BEE4CAF002B9A6B /* OpenWeatherEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherEndPoint.swift; sourceTree = "<group>"; };
 		7F2AAB2B2BEE5312002B9A6B /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		7F769C792BEA581A00321EE5 /* WeeklyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeather.swift; sourceTree = "<group>"; };
+		7F8CF87B2BF0DDF40025D7EE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7FEEB7002BE8B671006AC640 /* CommonWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWeatherData.swift; sourceTree = "<group>"; };
 		7FEEB7022BE8B713006AC640 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 		7F2AAB202BEE4A88002B9A6B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				7F8CF87B2BF0DDF40025D7EE /* NetworkService.swift */,
 				7F2AAB262BEE4BC5002B9A6B /* Error */,
 				7F2AAB212BEE4A92002B9A6B /* EndPoint */,
 			);
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F8CF87C2BF0DDF40025D7EE /* NetworkService.swift in Sources */,
 				7F199D382BDFB90700C66F29 /* ViewController.swift in Sources */,
 				7F2AAB282BEE4BD0002B9A6B /* NetworkError.swift in Sources */,
 				7FEEB7032BE8B713006AC640 /* CurrentWeather.swift in Sources */,

@@ -5,9 +5,9 @@
 //  Created by BOMBSGIE on 5/10/24.
 //
 
-import Foundation
-
 enum NetworkError: Error {
     case notFoundAPIKey
     case badURL
+    case failedResponseCasting
+    case responseError(statusCode: Int)
 }
