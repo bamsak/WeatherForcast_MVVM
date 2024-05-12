@@ -18,7 +18,7 @@ extension OpenWeatherEndPoint: APIEndPoint {
     }
     
     var host: String {
-        return "api.openai.com"
+        return "api.openweathermap.org"
     }
     
     var path: String {
