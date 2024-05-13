@@ -10,6 +10,7 @@ import Foundation
 enum OpenWeatherEndPoint {
     case current(latitude: Double, longitude: Double)
     case weekly(latitude: Double, longitude: Double)
+    case icon(name: String)
 }
 
 extension OpenWeatherEndPoint: APIEndPoint {
@@ -18,11 +19,21 @@ extension OpenWeatherEndPoint: APIEndPoint {
     }
     
     var host: String {
-        return "api.openweathermap.org"
+        switch self {
+        case .icon:
+            return "openweathermap.org"
+        default:
+            return "api.openweathermap.org"
+        }
     }
     
     var path: String {
-        return "/data/2.5/\(self.pathType)"
+        switch self {
+        case .current, .weekly:
+            return "/data/2.5/\(pathType)"
+        case .icon:
+            return "/img/wn/\(pathType)@2x.png"
+        }
     }
     
     var queries: [URLQueryItem]? {
@@ -37,6 +48,8 @@ extension OpenWeatherEndPoint: APIEndPoint {
                 return [URLQueryItem(name: "lat", value: "\(latitude)"),
                         URLQueryItem(name: "lon", value: "\(longitude)"),
                         URLQueryItem(name: "appid", value: apiKey)]
+            case .icon:
+                return nil
             }
         }
     }
@@ -55,7 +68,9 @@ private extension OpenWeatherEndPoint {
             return "weather"
         case .weekly:
             return "forecast"
-        }
+        case .icon(let name):
+            return "\(name)"
+       }
     }
     
     var apiKey: String? {
