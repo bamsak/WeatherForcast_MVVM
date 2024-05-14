@@ -7,7 +7,7 @@
 
 extension DTO {
     struct WeeklyWeather: Decodable {
-        let cod: Int
+        let cod: String
         let message: Int
         let timestampCount: Int
         let list: [List]
@@ -24,7 +24,7 @@ extension DTO.WeeklyWeather {
     struct List: Decodable {
         let dataTime: Int
         let main: CommonWeatherData.Main
-        let weather: CommonWeatherData.Weather
+        let weather: [CommonWeatherData.Weather]
         let clouds: CommonWeatherData.Clouds
         let wind: CommonWeatherData.Wind
         let visibility: Int
@@ -60,7 +60,7 @@ extension DTO.WeeklyWeather {
         let name: String
         let coordinate: CommonWeatherData.Coordinate
         let country: String
-        let population: String
+        let population: Int
         let timezone: Int
         let sunriseTime: Int
         let sunsetTime: Int
