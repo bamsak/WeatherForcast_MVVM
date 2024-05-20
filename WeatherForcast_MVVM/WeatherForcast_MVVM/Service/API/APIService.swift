@@ -9,9 +9,9 @@ import Foundation
 
 final class APIService {
     private let networkService: NetworkService
-    private let decoder: JSONDecoder
+    private let decoder: DataDecodable
     
-    init(networkService: NetworkService, decoder: JSONDecoder = JSONDecoder()) {
+    init(networkService: NetworkService, decoder: DataDecodable = JSONDecoder()) {
         self.networkService = networkService
         self.decoder = decoder
     }

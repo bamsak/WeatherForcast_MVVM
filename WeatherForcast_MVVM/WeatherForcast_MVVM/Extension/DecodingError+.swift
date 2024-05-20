@@ -1,5 +1,5 @@
 //
-//  DecodingError.swift
+//  DecodingError+.swift
 //  WeatherForcast_MVVM
 //
 //  Created by BOMBSGIE on 5/20/24.
