@@ -20,9 +20,8 @@ final class NetworkService {
         else {
             throw NetworkError.failedResponseCasting
         }
-        guard (200..<300).contains(statusCode) 
-        else {
-            throw NetworkError.responseError(statusCode: statusCode)
+        if let httpError = NetworkError.HTTPError(statusCode: statusCode) {
+            throw httpError
         }
         return data
     }
