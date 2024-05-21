@@ -36,7 +36,7 @@ extension OpenWeatherEndPoint: APIEndPoint {
         }
     }
     
-    var queries: [URLQueryItem]? {
+    var queryItems: [URLQueryItem]? {
         get throws {
             switch self {
             case .current(latitude: let latitude, longitude: let longitude),

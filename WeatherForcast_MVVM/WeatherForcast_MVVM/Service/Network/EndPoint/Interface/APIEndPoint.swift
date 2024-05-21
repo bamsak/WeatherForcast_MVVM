@@ -11,7 +11,7 @@ protocol APIEndPoint {
     var scheme: String { get }
     var host: String { get }
     var path: String { get }
-    var queries: [URLQueryItem]? { get throws }
+    var queryItems: [URLQueryItem]? { get throws }
     var httpMethod: HTTPMethod { get }
 }
 
@@ -32,7 +32,7 @@ private extension APIEndPoint {
         urlComponents.scheme = scheme
         urlComponents.host = host
         urlComponents.path = path
-        urlComponents.queryItems = try queries
+        urlComponents.queryItems = try queryItems
         guard let url = urlComponents.url
         else {
             throw NetworkError.badURL
