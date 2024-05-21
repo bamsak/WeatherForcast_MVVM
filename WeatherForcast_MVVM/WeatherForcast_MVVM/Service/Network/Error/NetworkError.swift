@@ -9,5 +9,4 @@ enum NetworkError: Error {
     case notFoundAPIKey
     case badURL
     case failedResponseCasting
-    case responseError(statusCode: Int)
 }
