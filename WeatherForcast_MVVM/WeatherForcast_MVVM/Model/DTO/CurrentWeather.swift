@@ -23,7 +23,8 @@ extension DTO {
         let cod: Int
         
         private enum CodingKeys: String, CodingKey {
-            case weather, base, main, visibility, wind, rain, snow, dataTime, timezone, id, name, cod
+            case weather, base, main, visibility, wind, rain, snow, timezone, id, name, cod
+            case dataTime = "dt"
             case coordinate = "coord"
             case system = "sys"
         }
@@ -32,9 +33,9 @@ extension DTO {
 
 extension DTO.CurrentWeather {
     struct System: Decodable {
-        let type: Int
-        let id: Int
-        let country: String
+        let type: Int?
+        let id: Int?
+        let country: String?
         let sunriseTime: Int
         let sunsetTime: Int
         
