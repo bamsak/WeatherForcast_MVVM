@@ -16,7 +16,9 @@ final class LocationService: NSObject {
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
     }
-    
+}
+
+extension LocationService: LocationDataProvidable {    
     func fetchCoordinate() async throws -> CLLocationCoordinate2D {
         return try await withCheckedThrowingContinuation { continuation in
             self.continuation = continuation
@@ -51,7 +53,7 @@ extension LocationService: CLLocationManagerDelegate {
     }
 }
 
-// MARK: - private
+// MARK: - Private
 
 private extension LocationService {
     func handleContinuation(withError error: Error) {
