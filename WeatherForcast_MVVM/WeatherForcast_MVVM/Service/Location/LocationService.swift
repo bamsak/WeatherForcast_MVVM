@@ -9,7 +9,7 @@ import CoreLocation
 
 final class LocationService: NSObject {
     private let manager: CLLocationManager = CLLocationManager()
-    private var continueation: CheckedContinuation<CLLocationCoordinate2D, Error>?
+    private var continuation: CheckedContinuation<CLLocationCoordinate2D, Error>?
     
     override init() {
         super.init()
@@ -18,8 +18,8 @@ final class LocationService: NSObject {
     }
     
     func fetchCoordinate() async throws -> CLLocationCoordinate2D {
-        return try await withCheckedThrowingContinuation { continueation in
-            self.continueation = continueation
+        return try await withCheckedThrowingContinuation { continuation in
+            self.continuation = continuation
         }
     }
 }
@@ -32,19 +32,34 @@ extension LocationService: CLLocationManagerDelegate {
         case .authorizedAlways, .authorizedWhenInUse:
             manager.startUpdatingLocation()
         default:
-            break
+            handleContinuation(withError: LocationError.unknownAuthorizationStatusError)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last
         else {
+            handleContinuation(withError: LocationError.notFoundLocation)
             return
         }
-        continueation?.resume(returning: location.coordinate)
-        continueation = nil
+        handleContinuation(withCoordinate: location.coordinate)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        handleContinuation(withError: error)
     }
 }
 
+// MARK: - private
 
-
+private extension LocationService {
+    func handleContinuation(withError error: Error) {
+        continuation?.resume(throwing: error)
+        continuation = nil
+    }
+    
+    func handleContinuation(withCoordinate value: CLLocationCoordinate2D) {
+        continuation?.resume(returning: value)
+        continuation = nil
+    }
+}
