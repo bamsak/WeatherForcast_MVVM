@@ -43,6 +43,7 @@ extension LocationService: CLLocationManagerDelegate {
             return
         }
         handleContinuation(withCoordinate: location.coordinate)
+        manager.stopUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
