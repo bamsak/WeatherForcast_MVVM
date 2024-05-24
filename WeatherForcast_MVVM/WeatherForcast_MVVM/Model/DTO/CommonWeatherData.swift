@@ -32,8 +32,8 @@ extension DTO.CommonWeatherData {
         let maximumTemperature: Double
         let pressure: Int
         let humidity: Int
-        let seaLevel: Int
-        let groundLevel: Int
+        let seaLevel: Int?
+        let groundLevel: Int?
         
         private enum CodingKeys: String, CodingKey {
             case temperature = "temp"
@@ -66,7 +66,7 @@ extension DTO.CommonWeatherData {
     struct Wind: Decodable {
         let speed: Double
         let direction: Int
-        let gust: Double
+        let gust: Double?
         
         private enum CodingKeys: String, CodingKey {
             case speed, gust
