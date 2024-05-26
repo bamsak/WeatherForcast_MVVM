@@ -20,8 +20,9 @@ final class LocationService: NSObject {
 
 extension LocationService: LocationDataProvidable {    
     func fetchCoordinate() async throws -> CLLocationCoordinate2D {
-        return try await withCheckedThrowingContinuation { continuation in
-            self.continuation = continuation
+        return try await withCheckedThrowingContinuation { [weak self] continuation in
+            self?.continuation = continuation
+            self?.manager.startUpdatingLocation()
         }
     }
 }
@@ -32,7 +33,9 @@ extension LocationService: CLLocationManagerDelegate {
         case .notDetermined, .denied:
             manager.requestWhenInUseAuthorization()
         case .authorizedAlways, .authorizedWhenInUse:
-            manager.startUpdatingLocation()
+            if let _ = continuation {
+                manager.startUpdatingLocation()
+            }
         default:
             handleContinuation(withError: LocationError.unknownAuthorizationStatusError)
         }
