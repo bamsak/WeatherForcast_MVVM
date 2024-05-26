@@ -33,9 +33,7 @@ extension LocationService: CLLocationManagerDelegate {
         case .notDetermined, .denied:
             manager.requestWhenInUseAuthorization()
         case .authorizedAlways, .authorizedWhenInUse:
-            if let _ = continuation {
-                manager.startUpdatingLocation()
-            }
+            return
         default:
             handleContinuation(withError: LocationError.unknownAuthorizationStatusError)
         }
@@ -52,7 +50,7 @@ extension LocationService: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        handleContinuation(withError: error)
+        print(error)
     }
 }
 
