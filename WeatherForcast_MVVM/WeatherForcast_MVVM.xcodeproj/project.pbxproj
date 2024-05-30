@@ -34,6 +34,8 @@
 		7F9AC9AD2BF35A05001424E4 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC9AC2BF35A05001424E4 /* APIService.swift */; };
 		7FDAD1312C08A4120018AA88 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAD1302C08A4120018AA88 /* Entity.swift */; };
 		7FDAD1332C08A9650018AA88 /* CurrentWeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAD1322C08A9650018AA88 /* CurrentWeatherInfo.swift */; };
+		7FDAD1352C08ADF70018AA88 /* WeeklyWeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAD1342C08ADF70018AA88 /* WeeklyWeatherInfo.swift */; };
+		7FDAD1372C08AF1A0018AA88 /* CommomWeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAD1362C08AF1A0018AA88 /* CommomWeatherInfo.swift */; };
 		7FEEB7012BE8B671006AC640 /* CommonWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEB7002BE8B671006AC640 /* CommonWeatherData.swift */; };
 		7FEEB7032BE8B713006AC640 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEB7022BE8B713006AC640 /* CurrentWeather.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,8 @@
 		7F9AC9AC2BF35A05001424E4 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		7FDAD1302C08A4120018AA88 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		7FDAD1322C08A9650018AA88 /* CurrentWeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherInfo.swift; sourceTree = "<group>"; };
+		7FDAD1342C08ADF70018AA88 /* WeeklyWeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherInfo.swift; sourceTree = "<group>"; };
+		7FDAD1362C08AF1A0018AA88 /* CommomWeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommomWeatherInfo.swift; sourceTree = "<group>"; };
 		7FEEB7002BE8B671006AC640 /* CommonWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWeatherData.swift; sourceTree = "<group>"; };
 		7FEEB7022BE8B713006AC640 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				7FDAD1322C08A9650018AA88 /* CurrentWeatherInfo.swift */,
+				7FDAD1342C08ADF70018AA88 /* WeeklyWeatherInfo.swift */,
+				7FDAD1362C08AF1A0018AA88 /* CommomWeatherInfo.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -413,6 +419,8 @@
 				7F9AC9AA2BF35932001424E4 /* URLSession+.swift in Sources */,
 				7F2AAB282BEE4BD0002B9A6B /* NetworkError.swift in Sources */,
 				7F2732B62C05ECD500F9974E /* CurrentWeatherRepository.swift in Sources */,
+				7FDAD1372C08AF1A0018AA88 /* CommomWeatherInfo.swift in Sources */,
+				7FDAD1352C08ADF70018AA88 /* WeeklyWeatherInfo.swift in Sources */,
 				7FDAD1332C08A9650018AA88 /* CurrentWeatherInfo.swift in Sources */,
 				7F2732B82C05ED5F00F9974E /* WeeklyWeatherRepository.swift in Sources */,
 				7F2732BB2C05EDBE00F9974E /* DefaultWeatherRepository.swift in Sources */,
