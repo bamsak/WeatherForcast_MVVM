@@ -19,6 +19,9 @@ extension DTO {
         }
     }
 }
+extension DTO.WeeklyWeather {
+    typealias CommonWeatherData = DTO.CommonWeatherData
+}
 
 extension DTO.WeeklyWeather {
     struct List: Decodable {
