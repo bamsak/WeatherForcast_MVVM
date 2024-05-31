@@ -77,3 +77,25 @@ extension DTO.WeeklyWeather {
     }
 }
 
+extension DTO.WeeklyWeather {
+    func asDomain() throws -> Entity.Repository.WeeklyWeatherInfo {
+        let weatherList = try self.list.map {
+            guard let weatherData = $0.weather.last
+            else {
+                throw MappingError.failedToDomainModel(Entity.Repository.WeeklyWeatherInfo.self)
+            }
+            let weather = Entity.Repository.CommomWeatherInfo.Weather(main: weatherData.main,
+                                                                      description: weatherData.description,
+                                                                      icon: weatherData.icon)
+            let main = Entity.Repository.CommomWeatherInfo.Main(temperature: $0.main.temperature,
+                                                                feelsLikeTemperature: $0.main.feelsLikeTemperature,
+                                                                minimumTemperature: $0.main.minimumTemperature,
+                                                                maximumTemperature: $0.main.maximumTemperature)
+            return Entity.Repository.WeeklyWeatherInfo.List(dataTime: $0.dataTime,
+                                                            dateText: $0.dateText,
+                                                            weather: weather,
+                                                            main: main)
+        }
+        return .init(list: weatherList)
+    }
+}
