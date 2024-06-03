@@ -6,5 +6,5 @@
 //
 
 protocol CurrentWeatherRepository {
-    func fetchCurrentWether(latitude: Double, longitude: Double) async throws -> DTO.CurrentWeather
+    func fetchCurrentWether(latitude: Double, longitude: Double) async throws -> Entity.Repository.CurrentWeatherInfo
 }

@@ -6,5 +6,5 @@
 //
 
 protocol WeeklyWeatherRepository {
-    func fetchWeeklyWeather(latitude: Double, longitude: Double) async throws -> DTO.WeeklyWeather
+    func fetchWeeklyWeather(latitude: Double, longitude: Double) async throws -> Entity.Repository.WeeklyWeatherInfo
 }

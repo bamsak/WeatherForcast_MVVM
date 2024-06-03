@@ -14,17 +14,19 @@ final class DefaultWeatherRepository {
 }
 
 extension DefaultWeatherRepository: CurrentWeatherRepository {
-    func fetchCurrentWether(latitude: Double, longitude: Double) async throws -> DTO.CurrentWeather {
+    func fetchCurrentWether(latitude: Double, longitude: Double) async throws -> Entity.Repository.CurrentWeatherInfo {
         let endPoint = OpenWeatherEndPoint.current(latitude: latitude, longitude: longitude)
         let currentWeather: DTO.CurrentWeather = try await apiService.excute(with: endPoint)
-        return currentWeather
+        let domainCurrnetWeather = try currentWeather.asDomain()
+        return domainCurrnetWeather
     }
 }
 
 extension DefaultWeatherRepository: WeeklyWeatherRepository {
-    func fetchWeeklyWeather(latitude: Double, longitude: Double) async throws -> DTO.WeeklyWeather {
+    func fetchWeeklyWeather(latitude: Double, longitude: Double) async throws -> Entity.Repository.WeeklyWeatherInfo {
         let endPoint = OpenWeatherEndPoint.weekly(latitude: latitude, longitude: longitude)
         let weeklyWeather: DTO.WeeklyWeather = try await apiService.excute(with: endPoint)
-        return weeklyWeather
+        let domainWeekltyWeather = try weeklyWeather.asDomain()
+        return domainWeekltyWeather
     }
 }
