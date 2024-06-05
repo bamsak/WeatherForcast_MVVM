@@ -15,8 +15,15 @@ final class DefaultLocationRepository {
 
 extension DefaultLocationRepository: LocationRepository {
     func fetchLocation() async throws -> Entity.Repository.LocationInfo {
-        let coordinate = try await locationService.fetchCoordinate()
-        let locationInfo = Entity.Repository.LocationInfo(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let placemark = try await locationService.fetchPlacemark()
+        guard let coordinate = placemark.location?.coordinate 
+        else {
+            throw LocationError.notFoundLocation
+        }
+        let locationInfo = Entity.Repository.LocationInfo(city: placemark.locality,
+                                                          district: placemark.subLocality,
+                                                          latitude: coordinate.latitude,
+                                                          longitude: coordinate.longitude)
         return locationInfo
     }
 }
