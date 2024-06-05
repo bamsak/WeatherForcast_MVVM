@@ -8,7 +8,7 @@
 extension Entity.Repository {
     struct CurrentWeatherInfo {
         let weather: CommomWeatherInfo.Weather
-        let main: CommomWeatherInfo.Main
+        let temperatureInfo: CommomWeatherInfo.TemperatureInfo
         let dataTime: Int
     }
 }

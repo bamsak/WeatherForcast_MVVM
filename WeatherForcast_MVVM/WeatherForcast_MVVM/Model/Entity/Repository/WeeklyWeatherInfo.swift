@@ -20,6 +20,6 @@ extension Entity.Repository.WeeklyWeatherInfo {
         let dataTime: Int
         let dateText: String
         let weather: CommonWeatherInfo.Weather
-        let main: CommonWeatherInfo.Main
+        let temperatureInfo: CommonWeatherInfo.TemperatureInfo
     }
 }

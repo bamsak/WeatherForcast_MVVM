@@ -87,14 +87,14 @@ extension DTO.WeeklyWeather {
             let weather = Entity.Repository.CommomWeatherInfo.Weather(main: weatherData.main,
                                                                       description: weatherData.description,
                                                                       icon: weatherData.icon)
-            let main = Entity.Repository.CommomWeatherInfo.Main(temperature: $0.main.temperature,
+            let main = Entity.Repository.CommomWeatherInfo.TemperatureInfo(temperature: $0.main.temperature,
                                                                 feelsLikeTemperature: $0.main.feelsLikeTemperature,
                                                                 minimumTemperature: $0.main.minimumTemperature,
                                                                 maximumTemperature: $0.main.maximumTemperature)
             return Entity.Repository.WeeklyWeatherInfo.List(dataTime: $0.dataTime,
                                                             dateText: $0.dateText,
                                                             weather: weather,
-                                                            main: main)
+                                                            temperatureInfo: main)
         }
         return .init(list: weatherList)
     }

@@ -16,7 +16,7 @@ extension Entity.Repository {
 }
 
 extension Entity.Repository.CommomWeatherInfo {
-    struct Main {
+    struct TemperatureInfo {
         let temperature: Double
         let feelsLikeTemperature: Double
         let minimumTemperature: Double

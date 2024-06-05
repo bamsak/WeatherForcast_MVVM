@@ -56,10 +56,10 @@ extension DTO.CurrentWeather {
         let weather = Entity.Repository.CommomWeatherInfo.Weather(main: weatherData.main,
                                                                   description: weatherData.description,
                                                                   icon: weatherData.icon)
-        let main = Entity.Repository.CommomWeatherInfo.Main(temperature: self.main.temperature,
+        let main = Entity.Repository.CommomWeatherInfo.TemperatureInfo(temperature: self.main.temperature,
                                                             feelsLikeTemperature: self.main.feelsLikeTemperature,
                                                             minimumTemperature: self.main.minimumTemperature,
                                                             maximumTemperature: self.main.maximumTemperature)
-        return .init(weather: weather, main: main, dataTime: self.dataTime)
+        return .init(weather: weather, temperatureInfo: main, dataTime: self.dataTime)
     }
 }
