@@ -8,7 +8,8 @@
 import CoreLocation
 
 final class LocationService: NSObject {
-    private let manager: CLLocationManager = CLLocationManager()
+    private let manager = CLLocationManager()
+    private let geocoder = CLGeocoder()
     private var continuation: CheckedContinuation<CLLocationCoordinate2D, Error>?
     private var locationContinuation: CheckedContinuation<CLLocation, Error>?
     
@@ -19,7 +20,17 @@ final class LocationService: NSObject {
     }
 }
 
-extension LocationService: LocationDataProvidable {    
+extension LocationService: LocationDataProvidable {
+    func fetchPlacemark() async throws -> CLPlacemark {
+        let location = try await fetchLocation()
+        let placemarks = try await geocoder.reverseGeocodeLocation(location)
+        guard let placemark = placemarks.last
+        else {
+            throw LocationError.notFoundPlacemark
+        }
+        return placemark
+    }
+    
     func fetchCoordinate() async throws -> CLLocationCoordinate2D {
         return try await withCheckedThrowingContinuation { [weak self] continuation in
             self?.continuation = continuation
