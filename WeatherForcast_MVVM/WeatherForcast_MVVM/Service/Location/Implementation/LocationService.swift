@@ -10,6 +10,7 @@ import CoreLocation
 final class LocationService: NSObject {
     private let manager: CLLocationManager = CLLocationManager()
     private var continuation: CheckedContinuation<CLLocationCoordinate2D, Error>?
+    private var locationContinuation: CheckedContinuation<CLLocation, Error>?
     
     override init() {
         super.init()
@@ -45,7 +46,7 @@ extension LocationService: CLLocationManagerDelegate {
             handleContinuation(withError: LocationError.notFoundLocation)
             return
         }
-        handleContinuation(withCoordinate: location.coordinate)
+        handleContinuation(withCoordinate: location)
         manager.stopUpdatingLocation()
     }
     
@@ -57,13 +58,20 @@ extension LocationService: CLLocationManagerDelegate {
 // MARK: - Private
 
 private extension LocationService {
-    func handleContinuation(withError error: Error) {
-        continuation?.resume(throwing: error)
-        continuation = nil
+    func fetchLocation() async throws -> CLLocation {
+        return try await withCheckedThrowingContinuation { [weak self] continuation in
+            self?.locationContinuation = continuation
+            self?.manager.startUpdatingLocation()
+        }
     }
     
-    func handleContinuation(withCoordinate value: CLLocationCoordinate2D) {
-        continuation?.resume(returning: value)
-        continuation = nil
+    func handleContinuation(withError error: Error) {
+        locationContinuation?.resume(throwing: error)
+        locationContinuation = nil
+    }
+    
+    func handleContinuation(withCoordinate value: CLLocation) {
+        locationContinuation?.resume(returning: value)
+        locationContinuation = nil
     }
 }
