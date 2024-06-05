@@ -5,7 +5,6 @@
 //  Created by BOMBSGIE on 5/6/24.
 //
 
-typealias CommonWeatherData = DTO.CommonWeatherData
 /// DTO NameSpace
 enum DTO { 
     /// Model for both current and weekly weather

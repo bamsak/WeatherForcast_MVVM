@@ -46,3 +46,20 @@ extension DTO.CurrentWeather {
         }
     }
 }
+
+extension DTO.CurrentWeather {
+    func asDomain() throws -> Entity.Repository.CurrentWeatherInfo {
+        guard let weatherData = weather.last
+        else {
+            throw MappingError.failedToDomainModel(Entity.Repository.CurrentWeatherInfo.self)
+        }
+        let weather = Entity.Repository.CommomWeatherInfo.Weather(main: weatherData.main,
+                                                                  description: weatherData.description,
+                                                                  icon: weatherData.icon)
+        let main = Entity.Repository.CommomWeatherInfo.TemperatureInfo(temperature: self.main.temperature,
+                                                            feelsLikeTemperature: self.main.feelsLikeTemperature,
+                                                            minimumTemperature: self.main.minimumTemperature,
+                                                            maximumTemperature: self.main.maximumTemperature)
+        return .init(weather: weather, temperatureInfo: main, dataTime: self.dataTime)
+    }
+}
