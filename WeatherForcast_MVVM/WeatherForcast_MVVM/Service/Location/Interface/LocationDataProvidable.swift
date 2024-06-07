@@ -8,5 +8,5 @@
 import CoreLocation
 
 protocol LocationDataProvidable {
-    func fetchCoordinate() async throws -> CLLocationCoordinate2D
+    func fetchPlacemark() async throws -> CLPlacemark
 }

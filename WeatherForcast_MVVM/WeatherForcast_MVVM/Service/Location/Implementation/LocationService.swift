@@ -8,8 +8,9 @@
 import CoreLocation
 
 final class LocationService: NSObject {
-    private let manager: CLLocationManager = CLLocationManager()
-    private var continuation: CheckedContinuation<CLLocationCoordinate2D, Error>?
+    private let manager = CLLocationManager()
+    private let geocoder = CLGeocoder()
+    private var continuation: CheckedContinuation<CLLocation, Error>?
     
     override init() {
         super.init()
@@ -18,12 +19,15 @@ final class LocationService: NSObject {
     }
 }
 
-extension LocationService: LocationDataProvidable {    
-    func fetchCoordinate() async throws -> CLLocationCoordinate2D {
-        return try await withCheckedThrowingContinuation { [weak self] continuation in
-            self?.continuation = continuation
-            self?.manager.startUpdatingLocation()
+extension LocationService: LocationDataProvidable {
+    func fetchPlacemark() async throws -> CLPlacemark {
+        let location = try await fetchLocation()
+        let placemarks = try await geocoder.reverseGeocodeLocation(location)
+        guard let placemark = placemarks.last
+        else {
+            throw LocationError.notFoundPlacemark
         }
+        return placemark
     }
 }
 
@@ -45,7 +49,7 @@ extension LocationService: CLLocationManagerDelegate {
             handleContinuation(withError: LocationError.notFoundLocation)
             return
         }
-        handleContinuation(withCoordinate: location.coordinate)
+        handleContinuation(withLocation: location)
         manager.stopUpdatingLocation()
     }
     
@@ -57,12 +61,19 @@ extension LocationService: CLLocationManagerDelegate {
 // MARK: - Private
 
 private extension LocationService {
+    func fetchLocation() async throws -> CLLocation {
+        return try await withCheckedThrowingContinuation { [weak self] continuation in
+            self?.continuation = continuation
+            self?.manager.startUpdatingLocation()
+        }
+    }
+    
     func handleContinuation(withError error: Error) {
         continuation?.resume(throwing: error)
         continuation = nil
     }
     
-    func handleContinuation(withCoordinate value: CLLocationCoordinate2D) {
+    func handleContinuation(withLocation value: CLLocation) {
         continuation?.resume(returning: value)
         continuation = nil
     }

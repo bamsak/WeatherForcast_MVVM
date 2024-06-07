@@ -8,4 +8,5 @@
 enum LocationError: Error {
     case unknownAuthorizationStatusError
     case notFoundLocation
+    case notFoundPlacemark
 }
