@@ -49,7 +49,7 @@ extension LocationService: CLLocationManagerDelegate {
             handleContinuation(withError: LocationError.notFoundLocation)
             return
         }
-        handleContinuation(withCoordinate: location)
+        handleContinuation(withLocation: location)
         manager.stopUpdatingLocation()
     }
     
@@ -73,7 +73,7 @@ private extension LocationService {
         continuation = nil
     }
     
-    func handleContinuation(withCoordinate value: CLLocation) {
+    func handleContinuation(withLocation value: CLLocation) {
         continuation?.resume(returning: value)
         continuation = nil
     }
