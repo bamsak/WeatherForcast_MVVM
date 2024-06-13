@@ -21,7 +21,7 @@ extension CacheService: Cacheable {
         else {
             return nil
         }
-        return Data(cachedData)
+        return Data(referencing: cachedData)
     }
     
     func storeCacheData(_ data: Data, for key: String) {
