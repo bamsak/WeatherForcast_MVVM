@@ -11,7 +11,9 @@ final class CacheService {
     private let storage = NSCache<NSString, NSData>()
     static let shared = CacheService()
     
-    private init() { }
+    private init() {
+        storage.countLimit = 41
+    }
 }
 
 extension CacheService: Cacheable {
