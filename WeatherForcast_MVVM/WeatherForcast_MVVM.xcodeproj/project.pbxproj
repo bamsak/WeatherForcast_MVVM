@@ -28,6 +28,7 @@
 		7F2AAB282BEE4BD0002B9A6B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2AAB272BEE4BD0002B9A6B /* NetworkError.swift */; };
 		7F2AAB2A2BEE4CAF002B9A6B /* OpenWeatherEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2AAB292BEE4CAF002B9A6B /* OpenWeatherEndPoint.swift */; };
 		7F2AAB2C2BEE5312002B9A6B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2AAB2B2BEE5312002B9A6B /* HTTPMethod.swift */; };
+		7F52D0232C1AFBF200B9220F /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52D0222C1AFBF200B9220F /* Cacheable.swift */; };
 		7F769C7A2BEA581A00321EE5 /* WeeklyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F769C792BEA581A00321EE5 /* WeeklyWeather.swift */; };
 		7F8CF87C2BF0DDF40025D7EE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8CF87B2BF0DDF40025D7EE /* NetworkService.swift */; };
 		7F9AC9AA2BF35932001424E4 /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC9A92BF35932001424E4 /* URLSession+.swift */; };
@@ -68,6 +69,7 @@
 		7F2AAB272BEE4BD0002B9A6B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		7F2AAB292BEE4CAF002B9A6B /* OpenWeatherEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherEndPoint.swift; sourceTree = "<group>"; };
 		7F2AAB2B2BEE5312002B9A6B /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		7F52D0222C1AFBF200B9220F /* Cacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
 		7F769C792BEA581A00321EE5 /* WeeklyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeather.swift; sourceTree = "<group>"; };
 		7F8CF87B2BF0DDF40025D7EE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7F9AC9A92BF35932001424E4 /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		7F2AAB1F2BEE4A7B002B9A6B /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				7F52D0202C1AFB7C00B9220F /* Cache */,
 				7F1343DB2C00BE83009E9DBD /* Location */,
 				7F9AC9AB2BF359D8001424E4 /* API */,
 				7F2AAB202BEE4A88002B9A6B /* Network */,
@@ -296,6 +299,22 @@
 				7F1343D82BFCA859009E9DBD /* HTTPError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		7F52D0202C1AFB7C00B9220F /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				7F52D0212C1AFB8700B9220F /* Interface */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		7F52D0212C1AFB8700B9220F /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				7F52D0222C1AFBF200B9220F /* Cacheable.swift */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 		7F9AC9A82BF35914001424E4 /* Extension */ = {
@@ -486,6 +505,7 @@
 				7F2AAB252BEE4ACF002B9A6B /* APIEndPoint.swift in Sources */,
 				7F2AAB2C2BEE5312002B9A6B /* HTTPMethod.swift in Sources */,
 				7F1343E02C00D7CC009E9DBD /* LocationError.swift in Sources */,
+				7F52D0232C1AFBF200B9220F /* Cacheable.swift in Sources */,
 				7F1343DD2C00BE8F009E9DBD /* LocationService.swift in Sources */,
 				7F1343E42C00E44B009E9DBD /* LocationDataProvidable.swift in Sources */,
 				7F2AAB2A2BEE4CAF002B9A6B /* OpenWeatherEndPoint.swift in Sources */,
