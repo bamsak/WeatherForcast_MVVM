@@ -12,7 +12,7 @@ final class CacheService {
     static let shared = CacheService()
     
     private init() {
-        storage.countLimit = 41
+        storage.countLimit = 9
     }
 }
 
