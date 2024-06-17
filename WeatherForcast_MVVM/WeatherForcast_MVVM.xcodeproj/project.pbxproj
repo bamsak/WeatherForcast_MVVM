@@ -33,6 +33,7 @@
 		7F2E1DA82C20721200F93ACD /* CurrentWeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E1DA72C20721200F93ACD /* CurrentWeatherDetail.swift */; };
 		7F2E1DAA2C20755700F93ACD /* WeeklyWeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E1DA92C20755700F93ACD /* WeeklyWeatherDetail.swift */; };
 		7F2E1DAC2C20770300F93ACD /* LocationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E1DAB2C20770300F93ACD /* LocationDetail.swift */; };
+		7F2E1DB22C207E3500F93ACD /* FetchWeatherForCurrentLocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2E1DB12C207E3500F93ACD /* FetchWeatherForCurrentLocationUseCase.swift */; };
 		7F52D0232C1AFBF200B9220F /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52D0222C1AFBF200B9220F /* Cacheable.swift */; };
 		7F52D0262C1AFD2100B9220F /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52D0252C1AFD2100B9220F /* CacheService.swift */; };
 		7F769C7A2BEA581A00321EE5 /* WeeklyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F769C792BEA581A00321EE5 /* WeeklyWeather.swift */; };
@@ -80,6 +81,7 @@
 		7F2E1DA72C20721200F93ACD /* CurrentWeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherDetail.swift; sourceTree = "<group>"; };
 		7F2E1DA92C20755700F93ACD /* WeeklyWeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherDetail.swift; sourceTree = "<group>"; };
 		7F2E1DAB2C20770300F93ACD /* LocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetail.swift; sourceTree = "<group>"; };
+		7F2E1DB12C207E3500F93ACD /* FetchWeatherForCurrentLocationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWeatherForCurrentLocationUseCase.swift; sourceTree = "<group>"; };
 		7F52D0222C1AFBF200B9220F /* Cacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
 		7F52D0252C1AFD2100B9220F /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		7F769C792BEA581A00321EE5 /* WeeklyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeather.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				7FE4BCA12BE5218900739D0D /* App */,
 				7FE3F0362BE5255400A047EE /* View */,
+				7F2E1DB02C207ABE00F93ACD /* UseCase */,
 				7F2732B22C0479D200F9974E /* Repository */,
 				7F2AAB1F2BEE4A7B002B9A6B /* Service */,
 				7FE3F0372BE525EA00A047EE /* Model */,
@@ -340,6 +343,22 @@
 				7F2E1DAB2C20770300F93ACD /* LocationDetail.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		7F2E1DB02C207ABE00F93ACD /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				7F2E1DB32C207E4200F93ACD /* Interface */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		7F2E1DB32C207E4200F93ACD /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				7F2E1DB12C207E3500F93ACD /* FetchWeatherForCurrentLocationUseCase.swift */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 		7F52D0202C1AFB7C00B9220F /* Cache */ = {
@@ -530,6 +549,7 @@
 				7FDAD1312C08A4120018AA88 /* Entity.swift in Sources */,
 				7F199D382BDFB90700C66F29 /* ViewController.swift in Sources */,
 				7F9AC9AA2BF35932001424E4 /* URLSession+.swift in Sources */,
+				7F2E1DB22C207E3500F93ACD /* FetchWeatherForCurrentLocationUseCase.swift in Sources */,
 				7F2AAB282BEE4BD0002B9A6B /* NetworkError.swift in Sources */,
 				7F2732B62C05ECD500F9974E /* CurrentWeatherRepository.swift in Sources */,
 				7FDAD1372C08AF1A0018AA88 /* CommomWeatherInfo.swift in Sources */,
