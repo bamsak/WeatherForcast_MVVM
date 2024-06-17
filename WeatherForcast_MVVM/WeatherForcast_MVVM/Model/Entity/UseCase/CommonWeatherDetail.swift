@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Entity.UseCase {
+extension Entity.UseCase.AllWeatherData {
     enum CommomWeatherDetail {
         struct Weather {
             let main: String
@@ -17,7 +17,7 @@ extension Entity.UseCase {
     }
 }
 
-extension Entity.UseCase.CommomWeatherDetail {
+extension Entity.UseCase.AllWeatherData.CommomWeatherDetail {
     struct TemperatureDetail {
         let temperature: Double
         let feelsLikeTemperature: Double
