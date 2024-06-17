@@ -7,6 +7,8 @@
 
 extension Entity.UseCase {
     struct AllWeatherData {
-        
+        let location: LocationDetail
+        let currentWeather: CurrentWeatherDetail
+        let weeklyWeather: WeeklyWeatherDetail
     }
 }
