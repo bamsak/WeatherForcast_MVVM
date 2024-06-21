@@ -17,7 +17,7 @@ extension Entity.UseCase.AllWeatherData.WeeklyWeatherDetail {
 
 extension Entity.UseCase.AllWeatherData.WeeklyWeatherDetail {
     struct List {
-        let datTime: Int
+        let dataTime: Int
         let dateText: String
         let weather: CommonWeatherDetail.Weather
         let temperatureDetail: CommonWeatherDetail.TemperatureDetail
