@@ -36,20 +36,3 @@ extension Entity.Repository.WeeklyWeatherInfo.List {
                      temperatureDetail: self.temperatureInfo.asUseCaseEntity())
     }
 }
-
-// MARK: - Private
-
-private extension Entity.Repository.CommomWeatherInfo.Weather {
-    func asUseCaseEntity(with data: Data) -> Entity.UseCase.AllWeatherData.CommomWeatherDetail.Weather {
-        return .init(main: self.main, description: self.description, iconData: data)
-    }
-}
-
-private extension Entity.Repository.CommomWeatherInfo.TemperatureInfo {
-    func asUseCaseEntity() -> Entity.UseCase.AllWeatherData.CommomWeatherDetail.TemperatureDetail {
-        return .init(temperature: self.temperature,
-                     feelsLikeTemperature: self.feelsLikeTemperature,
-                     minimumTemperature: self.minimumTemperature,
-                     maximumTemperature: self.maximumTemperature)
-    }
-}
