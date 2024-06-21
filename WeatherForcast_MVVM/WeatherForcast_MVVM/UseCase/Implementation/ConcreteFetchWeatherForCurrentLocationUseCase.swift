@@ -68,6 +68,13 @@ private extension ConcreteFetchWeatherForCurrentLocationUseCase {
     
         return .init(list: useCaseListEntities)
     }
+    
+    func convertToCurrentWEatherDetail(_ repositoryCurrentWeatherEntity: Entity.Repository.CurrentWeatherInfo) async throws -> Entity.UseCase.AllWeatherData.CurrentWeatherDetail {
+        let iconData = try await weatherIconDataRepository.fetchIconData(repositoryCurrentWeatherEntity.weather.icon)
+        return .init(weather: repositoryCurrentWeatherEntity.weather.asUseCaseEntity(with: iconData),
+                     temperatureDetail: repositoryCurrentWeatherEntity.temperatureInfo.asUseCaseEntity(),
+                     dataTime: repositoryCurrentWeatherEntity.dataTime)
+    }
 }
 
 // MARK: - Private Extensition UseCaseEntity Initializer
