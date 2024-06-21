@@ -24,6 +24,18 @@ final class ConcreteFetchWeatherForCurrentLocationUseCase {
     }
 }
 
+extension ConcreteFetchWeatherForCurrentLocationUseCase: FetchWeatherForCurrentLocationUseCase {
+    func excute() async throws -> Entity.UseCase.AllWeatherData {
+        let location = try await locationRepository.fetchLocation()
+        let weatherData = try await fetchWeatherData(with: location.coordinate)
+        async let weeklyWeatheerDetail = convertToWeeklyWeatherDetail(weatherData.weeklyWeather.list)
+        async let currentWeatherDetail = convertToCurrentWEatherDetail(weatherData.currentWeather)
+        return .init(location: location.asUseCaseEntity(),
+                     currentWeather: try await currentWeatherDetail,
+                     weeklyWeather: try await weeklyWeatheerDetail)
+    }
+}
+
 // MARK: - TypeAliase
 
 private extension ConcreteFetchWeatherForCurrentLocationUseCase {
