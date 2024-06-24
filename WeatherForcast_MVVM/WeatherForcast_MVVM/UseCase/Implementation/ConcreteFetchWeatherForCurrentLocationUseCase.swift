@@ -30,9 +30,9 @@ extension ConcreteFetchWeatherForCurrentLocationUseCase: FetchWeatherForCurrentL
         let weatherData = try await fetchWeatherData(with: location.coordinate)
         async let weeklyWeatheerDetail = convertToWeeklyWeatherDetail(weatherData.weeklyWeather.list)
         async let currentWeatherDetail = convertToCurrentWEatherDetail(weatherData.currentWeather)
-        return .init(location: location.asUseCaseEntity(),
-                     currentWeather: try await currentWeatherDetail,
-                     weeklyWeather: try await weeklyWeatheerDetail)
+        return try await .init(location: location.asUseCaseEntity(),
+                     currentWeather: currentWeatherDetail,
+                     weeklyWeather: weeklyWeatheerDetail)
     }
 }
 
@@ -61,7 +61,8 @@ private extension ConcreteFetchWeatherForCurrentLocationUseCase {
         return try await (currentWeather, weeklyWeather)
     }
     
-    func convertToWeeklyWeatherDetail(_ repositoryListEntities: [RepositoryListEntity]) async throws -> Entity.UseCase.AllWeatherData.WeeklyWeatherDetail {
+    func convertToWeeklyWeatherDetail(_ repositoryListEntities: [RepositoryListEntity]) async throws ->
+    Entity.UseCase.AllWeatherData.WeeklyWeatherDetail {
         var useCaseListEntities = [UseCaseListEntity](repeating: UseCaseListEntity(), count: repositoryListEntities.count)
     
         try await withThrowingTaskGroup(of: (Int, UseCaseListEntity).self) { [weak self] group in
