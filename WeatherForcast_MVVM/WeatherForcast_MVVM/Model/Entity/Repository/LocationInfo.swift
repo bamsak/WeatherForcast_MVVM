@@ -27,4 +27,8 @@ extension Entity.Repository.LocationInfo {
         let latitude: Double
         let longitude: Double
     }
+    
+    func asUseCaseEntity() -> Entity.UseCase.AllWeatherData.LocationDetail {
+        return .init(city: self.city, district: self.district)
+    }
 }

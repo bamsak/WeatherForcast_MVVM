@@ -8,6 +8,9 @@
 /// Entity(Domain Model) NameSpace
 enum Entity {
     
-    /// Repository Return Model Type NameSpacse
+    /// Repository Return Model Type NameSpace
     enum Repository { }
+    
+    /// UseCase Return Model Type NameSpace
+    enum UseCase { }
 }
