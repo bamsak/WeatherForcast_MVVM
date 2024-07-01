@@ -53,6 +53,7 @@
 		7FEEB7012BE8B671006AC640 /* CommonWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEB7002BE8B671006AC640 /* CommonWeatherData.swift */; };
 		7FEEB7032BE8B713006AC640 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEB7022BE8B713006AC640 /* CurrentWeather.swift */; };
 		7FFA690E2C32AAE400092250 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA690D2C32AAE400092250 /* Event.swift */; };
+		7FFA69122C32AB3600092250 /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA69112C32AB3600092250 /* ObservableType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		7FEEB7002BE8B671006AC640 /* CommonWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWeatherData.swift; sourceTree = "<group>"; };
 		7FEEB7022BE8B713006AC640 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		7FFA690D2C32AAE400092250 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		7FFA69112C32AB3600092250 /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -494,6 +496,7 @@
 		7FFA690B2C32AAC400092250 /* Binder */ = {
 			isa = PBXGroup;
 			children = (
+				7FFA690F2C32AB2300092250 /* Observable */,
 				7FFA690C2C32AAD800092250 /* Event */,
 			);
 			path = Binder;
@@ -505,6 +508,22 @@
 				7FFA690D2C32AAE400092250 /* Event.swift */,
 			);
 			path = Event;
+			sourceTree = "<group>";
+		};
+		7FFA690F2C32AB2300092250 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA69102C32AB2A00092250 /* Interface */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
+		7FFA69102C32AB2A00092250 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA69112C32AB3600092250 /* ObservableType.swift */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -588,6 +607,7 @@
 				7F2732B62C05ECD500F9974E /* CurrentWeatherRepository.swift in Sources */,
 				7FDAD1372C08AF1A0018AA88 /* CommomWeatherInfo.swift in Sources */,
 				7FDAD13A2C09CD7A0018AA88 /* MappingError.swift in Sources */,
+				7FFA69122C32AB3600092250 /* ObservableType.swift in Sources */,
 				7F2E1DAA2C20755700F93ACD /* WeeklyWeatherDetail.swift in Sources */,
 				7F2E1DA42C20713300F93ACD /* CommonWeatherDetail.swift in Sources */,
 				7FDAD1352C08ADF70018AA88 /* WeeklyWeatherInfo.swift in Sources */,
