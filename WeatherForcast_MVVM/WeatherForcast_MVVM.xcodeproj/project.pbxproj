@@ -52,6 +52,7 @@
 		7FED2F5D2C0EE5CE00CC1E1F /* DefaultLocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2F5C2C0EE5CE00CC1E1F /* DefaultLocationRepository.swift */; };
 		7FEEB7012BE8B671006AC640 /* CommonWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEB7002BE8B671006AC640 /* CommonWeatherData.swift */; };
 		7FEEB7032BE8B713006AC640 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEB7022BE8B713006AC640 /* CurrentWeather.swift */; };
+		7FFA690E2C32AAE400092250 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA690D2C32AAE400092250 /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		7FED2F5C2C0EE5CE00CC1E1F /* DefaultLocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLocationRepository.swift; sourceTree = "<group>"; };
 		7FEEB7002BE8B671006AC640 /* CommonWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWeatherData.swift; sourceTree = "<group>"; };
 		7FEEB7022BE8B713006AC640 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		7FFA690D2C32AAE400092250 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				7FE4BCA12BE5218900739D0D /* App */,
 				7FE3F0362BE5255400A047EE /* View */,
+				7FFA690B2C32AAC400092250 /* Binder */,
 				7F2E1DB02C207ABE00F93ACD /* UseCase */,
 				7F2732B22C0479D200F9974E /* Repository */,
 				7F2AAB1F2BEE4A7B002B9A6B /* Service */,
@@ -488,6 +491,22 @@
 			path = Implementation;
 			sourceTree = "<group>";
 		};
+		7FFA690B2C32AAC400092250 /* Binder */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA690C2C32AAD800092250 /* Event */,
+			);
+			path = Binder;
+			sourceTree = "<group>";
+		};
+		7FFA690C2C32AAD800092250 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA690D2C32AAE400092250 /* Event.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -560,6 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F8CF87C2BF0DDF40025D7EE /* NetworkService.swift in Sources */,
+				7FFA690E2C32AAE400092250 /* Event.swift in Sources */,
 				7FDAD1312C08A4120018AA88 /* Entity.swift in Sources */,
 				7F199D382BDFB90700C66F29 /* ViewController.swift in Sources */,
 				7F9AC9AA2BF35932001424E4 /* URLSession+.swift in Sources */,
