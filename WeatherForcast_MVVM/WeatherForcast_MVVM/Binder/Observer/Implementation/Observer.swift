@@ -8,9 +8,10 @@
 import Foundation
 
 final class Observer<Element> {
-    private let eventHandler: (Event<Element>) -> Void
-    var removeAction: (() -> Void)?
     let id: UUID = UUID()
+    var removeAction: (() -> Void)?
+    
+    private let eventHandler: (Event<Element>) -> Void
     
     init(eventHandler: @escaping (Event<Element>) -> Void) {
         self.eventHandler = eventHandler
