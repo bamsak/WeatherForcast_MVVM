@@ -7,5 +7,7 @@
 
 protocol ObservableType: AnyObject {
     associatedtype Element
-    func subscribe(_ handler: @escaping (Event<Element>) -> Void) -> Disposable
+    
+    func subscribe(_ observer: Observer<Element>) -> Disposable
+    func asObservable() -> Observable<Element>
 }
