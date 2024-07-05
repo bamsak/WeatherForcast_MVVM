@@ -52,8 +52,13 @@
 		7FED2F5D2C0EE5CE00CC1E1F /* DefaultLocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED2F5C2C0EE5CE00CC1E1F /* DefaultLocationRepository.swift */; };
 		7FEEB7012BE8B671006AC640 /* CommonWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEB7002BE8B671006AC640 /* CommonWeatherData.swift */; };
 		7FEEB7032BE8B713006AC640 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEB7022BE8B713006AC640 /* CurrentWeather.swift */; };
+		7FF61B112C3517E400D5141D /* ObserverType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF61B102C3517E400D5141D /* ObserverType.swift */; };
+		7FF61B132C3517FA00D5141D /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF61B122C3517FA00D5141D /* Observer.swift */; };
+		7FF61B182C351AC300D5141D /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF61B172C351AC300D5141D /* Disposable.swift */; };
+		7FF61B1B2C351B1900D5141D /* ConcreteDispose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF61B1A2C351B1900D5141D /* ConcreteDispose.swift */; };
 		7FFA690E2C32AAE400092250 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA690D2C32AAE400092250 /* Event.swift */; };
 		7FFA69122C32AB3600092250 /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA69112C32AB3600092250 /* ObservableType.swift */; };
+		7FFA69152C32ABA000092250 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFA69142C32ABA000092250 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,8 +109,13 @@
 		7FED2F5C2C0EE5CE00CC1E1F /* DefaultLocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLocationRepository.swift; sourceTree = "<group>"; };
 		7FEEB7002BE8B671006AC640 /* CommonWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWeatherData.swift; sourceTree = "<group>"; };
 		7FEEB7022BE8B713006AC640 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		7FF61B102C3517E400D5141D /* ObserverType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverType.swift; sourceTree = "<group>"; };
+		7FF61B122C3517FA00D5141D /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		7FF61B172C351AC300D5141D /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
+		7FF61B1A2C351B1900D5141D /* ConcreteDispose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcreteDispose.swift; sourceTree = "<group>"; };
 		7FFA690D2C32AAE400092250 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		7FFA69112C32AB3600092250 /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
+		7FFA69142C32ABA000092250 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -493,9 +503,61 @@
 			path = Implementation;
 			sourceTree = "<group>";
 		};
+		7FF61B0D2C3517A800D5141D /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				7FF61B0F2C3517B500D5141D /* Implementation */,
+				7FF61B0E2C3517AF00D5141D /* Interface */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
+		7FF61B0E2C3517AF00D5141D /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				7FF61B102C3517E400D5141D /* ObserverType.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		7FF61B0F2C3517B500D5141D /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				7FF61B122C3517FA00D5141D /* Observer.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		7FF61B142C351AA600D5141D /* Disposable */ = {
+			isa = PBXGroup;
+			children = (
+				7FF61B162C351AB900D5141D /* Implementation */,
+				7FF61B152C351AAE00D5141D /* Interface */,
+			);
+			path = Disposable;
+			sourceTree = "<group>";
+		};
+		7FF61B152C351AAE00D5141D /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				7FF61B172C351AC300D5141D /* Disposable.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		7FF61B162C351AB900D5141D /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				7FF61B1A2C351B1900D5141D /* ConcreteDispose.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
 		7FFA690B2C32AAC400092250 /* Binder */ = {
 			isa = PBXGroup;
 			children = (
+				7FF61B142C351AA600D5141D /* Disposable */,
+				7FF61B0D2C3517A800D5141D /* Observer */,
 				7FFA690F2C32AB2300092250 /* Observable */,
 				7FFA690C2C32AAD800092250 /* Event */,
 			);
@@ -513,6 +575,7 @@
 		7FFA690F2C32AB2300092250 /* Observable */ = {
 			isa = PBXGroup;
 			children = (
+				7FFA69132C32AB9400092250 /* Implementation */,
 				7FFA69102C32AB2A00092250 /* Interface */,
 			);
 			path = Observable;
@@ -524,6 +587,14 @@
 				7FFA69112C32AB3600092250 /* ObservableType.swift */,
 			);
 			path = Interface;
+			sourceTree = "<group>";
+		};
+		7FFA69132C32AB9400092250 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				7FFA69142C32ABA000092250 /* Observable.swift */,
+			);
+			path = Implementation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -598,6 +669,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F8CF87C2BF0DDF40025D7EE /* NetworkService.swift in Sources */,
+				7FF61B182C351AC300D5141D /* Disposable.swift in Sources */,
 				7FFA690E2C32AAE400092250 /* Event.swift in Sources */,
 				7FDAD1312C08A4120018AA88 /* Entity.swift in Sources */,
 				7F199D382BDFB90700C66F29 /* ViewController.swift in Sources */,
@@ -606,6 +678,7 @@
 				7F2AAB282BEE4BD0002B9A6B /* NetworkError.swift in Sources */,
 				7F2732B62C05ECD500F9974E /* CurrentWeatherRepository.swift in Sources */,
 				7FDAD1372C08AF1A0018AA88 /* CommomWeatherInfo.swift in Sources */,
+				7FF61B132C3517FA00D5141D /* Observer.swift in Sources */,
 				7FDAD13A2C09CD7A0018AA88 /* MappingError.swift in Sources */,
 				7FFA69122C32AB3600092250 /* ObservableType.swift in Sources */,
 				7F2E1DAA2C20755700F93ACD /* WeeklyWeatherDetail.swift in Sources */,
@@ -618,8 +691,10 @@
 				7F2E1DB82C2594A100F93ACD /* BindingError.swift in Sources */,
 				7F2E1DA62C20717000F93ACD /* AllWeatherData.swift in Sources */,
 				7F1343D92BFCA859009E9DBD /* HTTPError.swift in Sources */,
+				7FF61B112C3517E400D5141D /* ObserverType.swift in Sources */,
 				7F2E1DB62C20895A00F93ACD /* ConcreteFetchWeatherForCurrentLocationUseCase.swift in Sources */,
 				7FEEB7032BE8B713006AC640 /* CurrentWeather.swift in Sources */,
+				7FF61B1B2C351B1900D5141D /* ConcreteDispose.swift in Sources */,
 				7F1343D52BFB81EE009E9DBD /* DecodingError+.swift in Sources */,
 				7F52D0262C1AFD2100B9220F /* CacheService.swift in Sources */,
 				7F199D342BDFB90700C66F29 /* AppDelegate.swift in Sources */,
@@ -628,6 +703,7 @@
 				7F769C7A2BEA581A00321EE5 /* WeeklyWeather.swift in Sources */,
 				7F199D362BDFB90700C66F29 /* SceneDelegate.swift in Sources */,
 				7FEEB7012BE8B671006AC640 /* CommonWeatherData.swift in Sources */,
+				7FFA69152C32ABA000092250 /* Observable.swift in Sources */,
 				7F2E1DA82C20721200F93ACD /* CurrentWeatherDetail.swift in Sources */,
 				7F2732BF2C06000C00F9974E /* WeatherIconDataRepository.swift in Sources */,
 				7FED2F5B2C0EE58B00CC1E1F /* LocationInfo.swift in Sources */,

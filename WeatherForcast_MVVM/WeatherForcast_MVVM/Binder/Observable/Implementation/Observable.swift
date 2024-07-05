@@ -30,8 +30,4 @@ extension Observable: ObservableType {
         }
         return subscribeHandler(observer)
     }
-    
-    func asObservable() -> Observable<Element> {
-        return self
-    }
 }

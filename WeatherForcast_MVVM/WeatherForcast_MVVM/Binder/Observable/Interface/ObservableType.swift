@@ -9,7 +9,6 @@ protocol ObservableType: AnyObject {
     associatedtype Element
     
     func subscribe(_ observer: Observer<Element>) -> Disposable
-    func asObservable() -> Observable<Element>
 }
 
 extension ObservableType {
@@ -17,7 +16,7 @@ extension ObservableType {
         let observer = Observer<Element> { event in
             handler(event)
         }
-        return self.asObservable().subscribe(observer)
+        return self.subscribe(observer)
     }
     
     func subscribe(onNext: ((Element) -> Void)? = nil, onError: ((Error) -> Void)? = nil) -> Disposable {
@@ -31,13 +30,7 @@ extension ObservableType {
                 }
             }
         }
-        return self.asObservable().subscribe(observer)
-    }
-    
-    func asObservable() -> Observable<Element> {
-        return Observable.create { observer in
-            self.subscribe(observer)
-        }
+        return self.subscribe(observer)
     }
 }
 
