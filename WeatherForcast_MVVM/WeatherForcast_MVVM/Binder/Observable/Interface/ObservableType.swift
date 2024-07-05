@@ -33,4 +33,16 @@ extension ObservableType {
         }
         return self.asObservable().subscribe(observer)
     }
+    
+    func asObservable() -> Observable<Element> {
+        return Observable.create { observer in
+            self.subscribe(observer)
+        }
+    }
+}
+
+extension ObservableType {
+    static func create(_ subscribe: @escaping (Observer<Element>) -> Disposable) -> Observable<Element> {
+        return Observable(subscribeHandler: subscribe)
+    }
 }
