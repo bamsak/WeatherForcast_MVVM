@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				7FE4BCA12BE5218900739D0D /* App */,
-				7FE3F0362BE5255400A047EE /* View */,
+				7F5216C02C3AC01F00C01A7A /* Presentation */,
 				7FFA690B2C32AAC400092250 /* Binder */,
 				7F2E1DB02C207ABE00F93ACD /* UseCase */,
 				7F2732B22C0479D200F9974E /* Repository */,
@@ -387,6 +387,14 @@
 				7F2E1DB52C20895A00F93ACD /* ConcreteFetchWeatherForCurrentLocationUseCase.swift */,
 			);
 			path = Implementation;
+			sourceTree = "<group>";
+		};
+		7F5216C02C3AC01F00C01A7A /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				7FE3F0362BE5255400A047EE /* View */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		7F52D0202C1AFB7C00B9220F /* Cache */ = {
