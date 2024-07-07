@@ -13,10 +13,12 @@ final class ConcreteFetchWeatherForCurrentLocationUseCase {
     private let currentWeatherRepository: CurrentWeatherRepository
     private let weeklyWeatherRepository: WeeklyWeatherRepository
     
-    init(locationRepository: LocationRepository,
+    init(
+        locationRepository: LocationRepository,
          weatherIconDataRepository: WeatherIconDataRepository,
          currentWeatherRepository: CurrentWeatherRepository,
-         weeklyWeatherRepository: WeeklyWeatherRepository) {
+         weeklyWeatherRepository: WeeklyWeatherRepository
+    ) {
         self.locationRepository = locationRepository
         self.weatherIconDataRepository = weatherIconDataRepository
         self.currentWeatherRepository = currentWeatherRepository
