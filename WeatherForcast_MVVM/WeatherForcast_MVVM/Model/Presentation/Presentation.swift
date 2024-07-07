@@ -11,5 +11,3 @@ enum Presentation { }
 extension Presentation {
     struct AllWeather { }
 }
-
-
