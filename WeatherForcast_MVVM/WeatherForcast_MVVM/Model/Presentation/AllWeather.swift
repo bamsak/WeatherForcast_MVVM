@@ -9,5 +9,8 @@
 enum Presentation { }
 
 extension Presentation {
-    struct AllWeather { }
+    struct AllWeather { 
+        let currentWeather: CurrentWeatherModel
+        let weeklyWeather: WeeklyWeatherModel
+    }
 }
