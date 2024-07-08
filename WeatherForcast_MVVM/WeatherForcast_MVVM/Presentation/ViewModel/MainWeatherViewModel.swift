@@ -35,6 +35,13 @@ private extension MainWeatherViewModel {
 // MARK: - private
 
 private extension MainWeatherViewModel {
+    func convertToPresentationWeatherModel(with allWeather: Entity.UseCase.AllWeatherData) -> Presentation.AllWeather {
+        let currentWeather = convertToPresentationCurrentWeather(from: allWeather.currentWeather, with: allWeather.location)
+        let weeklyWeather = converToPresentaionWeeklyWeather(from: allWeather.weeklyWeather)
+        
+        return .init(currentWeather: currentWeather, weeklyWeather: weeklyWeather)
+    }
+    
     func convertToPresentationCurrentWeather(from currentWeather: EntityCurrentWeather,
                                              with location: EntityLocation) -> PresentationCurrentWeather {
         let location = PresentationLocation(city: location.city, district: location.district)
@@ -59,10 +66,13 @@ private extension MainWeatherViewModel {
             let weather = PresentationCommonWeather.Weather(main: $0.weather.main,
                                                             description: $0.weather.description,
                                                             iconData: $0.weather.iconData)
-            let temperature = PresentationCommonWeather.TemperatureDetail(temperature: $0.temperatureDetail.temperature,
-                                                                          feelsLikeTemperature: $0.temperatureDetail.feelsLikeTemperature,
-                                                                          minimumTemperature: $0.temperatureDetail.minimumTemperature,
-                                                                          maximumTemperature: $0.temperatureDetail.maximumTemperature)
+            let temperature = PresentationCommonWeather.TemperatureDetail(
+                temperature: $0.temperatureDetail.temperature,
+                feelsLikeTemperature: $0.temperatureDetail.feelsLikeTemperature,
+                minimumTemperature: $0.temperatureDetail.minimumTemperature,
+                maximumTemperature: $0.temperatureDetail.maximumTemperature
+            )
+            
             return .init(dataTime: $0.dataTime,
                          weather: weather,
                          temperature: temperature)

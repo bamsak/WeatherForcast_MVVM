@@ -15,9 +15,9 @@ final class ConcreteFetchWeatherForCurrentLocationUseCase {
     
     init(
         locationRepository: LocationRepository,
-         weatherIconDataRepository: WeatherIconDataRepository,
-         currentWeatherRepository: CurrentWeatherRepository,
-         weeklyWeatherRepository: WeeklyWeatherRepository
+        weatherIconDataRepository: WeatherIconDataRepository,
+        currentWeatherRepository: CurrentWeatherRepository,
+        weeklyWeatherRepository: WeeklyWeatherRepository
     ) {
         self.locationRepository = locationRepository
         self.weatherIconDataRepository = weatherIconDataRepository
@@ -66,7 +66,7 @@ private extension ConcreteFetchWeatherForCurrentLocationUseCase {
     func convertToWeeklyWeatherDetail(_ repositoryListEntities: [RepositoryListEntity]) async throws ->
     Entity.UseCase.AllWeatherData.WeeklyWeatherDetail {
         var useCaseListEntities = [UseCaseListEntity](repeating: UseCaseListEntity(), count: repositoryListEntities.count)
-    
+        
         try await withThrowingTaskGroup(of: (Int, UseCaseListEntity).self) { [weak self] group in
             guard let self = self else { throw BindingError.failedSelfBinding }
             repositoryListEntities.enumerated().forEach { index, item in
@@ -75,12 +75,12 @@ private extension ConcreteFetchWeatherForCurrentLocationUseCase {
                     return (index, item.asUseCaseEntity(with: iconData))
                 }
             }
-    
+            
             for try await (index, list) in group {
                 useCaseListEntities[index] = list
             }
         }
-    
+        
         return .init(list: useCaseListEntities)
     }
     
