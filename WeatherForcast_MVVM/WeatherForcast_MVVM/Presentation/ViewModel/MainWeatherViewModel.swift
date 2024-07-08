@@ -7,9 +7,30 @@
 
 final class MainWeatherViewModel {
     private let fetchWeatherForCurrentUseCase: FetchWeatherForCurrentLocationUseCase
+    private var weatherObservable: Observable<Presentation.AllWeather>?
     
     init(fetchWeatherForCurrentUseCase: FetchWeatherForCurrentLocationUseCase) {
         self.fetchWeatherForCurrentUseCase = fetchWeatherForCurrentUseCase
+    }
+    
+    func fetchWeather() -> Observable<Presentation.AllWeather> {
+        let observable = Observable.create { observer in
+            Task { [weak self] in
+                guard let self = self else { return }
+                do {
+                    let weatherData = try await self.fetchWeatherForCurrentUseCase.excute()
+                    let presentaionWeather = self.convertToPresentationWeatherModel(with: weatherData)
+                    observer.onNext(presentaionWeather)
+                } catch {
+                    observer.onError(error)
+                }
+            }
+            return ConcreteDispose {
+                observer.removeAction?()
+            }
+        }
+        self.weatherObservable = observable
+        return observable
     }
 }
 
