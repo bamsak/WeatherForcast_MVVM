@@ -42,6 +42,8 @@
 		7F769C7A2BEA581A00321EE5 /* WeeklyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F769C792BEA581A00321EE5 /* WeeklyWeather.swift */; };
 		7F849B212C3C27B20057BBC1 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F849B202C3C27B20057BBC1 /* AppEnvironment.swift */; };
 		7F849B252C3D65010057BBC1 /* CurrentWeatherHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F849B242C3D65010057BBC1 /* CurrentWeatherHeaderView.swift */; };
+		7F849B272C3D853F0057BBC1 /* WeeklyWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F849B262C3D853F0057BBC1 /* WeeklyWeatherCell.swift */; };
+		7F849B2A2C3D8B250057BBC1 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F849B292C3D8B250057BBC1 /* Then.swift */; };
 		7F8CF87C2BF0DDF40025D7EE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8CF87B2BF0DDF40025D7EE /* NetworkService.swift */; };
 		7F9AC9AA2BF35932001424E4 /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC9A92BF35932001424E4 /* URLSession+.swift */; };
 		7F9AC9AD2BF35A05001424E4 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9AC9AC2BF35A05001424E4 /* APIService.swift */; };
@@ -108,6 +110,8 @@
 		7F769C792BEA581A00321EE5 /* WeeklyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeather.swift; sourceTree = "<group>"; };
 		7F849B202C3C27B20057BBC1 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		7F849B242C3D65010057BBC1 /* CurrentWeatherHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherHeaderView.swift; sourceTree = "<group>"; };
+		7F849B262C3D853F0057BBC1 /* WeeklyWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherCell.swift; sourceTree = "<group>"; };
+		7F849B292C3D8B250057BBC1 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		7F8CF87B2BF0DDF40025D7EE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7F9AC9A92BF35932001424E4 /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
 		7F9AC9AC2BF35A05001424E4 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				7F2AAB1F2BEE4A7B002B9A6B /* Service */,
 				7FE3F0372BE525EA00A047EE /* Model */,
 				7F9AC9A82BF35914001424E4 /* Extension */,
+				7F849B282C3D8B160057BBC1 /* Then */,
 				7F199D3C2BDFB90800C66F29 /* Assets.xcassets */,
 				7F199D3E2BDFB90800C66F29 /* LaunchScreen.storyboard */,
 				7F199D412BDFB90800C66F29 /* Info.plist */,
@@ -449,6 +454,14 @@
 			path = Implementation;
 			sourceTree = "<group>";
 		};
+		7F849B282C3D8B160057BBC1 /* Then */ = {
+			isa = PBXGroup;
+			children = (
+				7F849B292C3D8B250057BBC1 /* Then.swift */,
+			);
+			path = Then;
+			sourceTree = "<group>";
+		};
 		7F9AC9A82BF35914001424E4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,6 +507,7 @@
 			children = (
 				7F199D372BDFB90700C66F29 /* MainWeatherViewController.swift */,
 				7F849B242C3D65010057BBC1 /* CurrentWeatherHeaderView.swift */,
+				7F849B262C3D853F0057BBC1 /* WeeklyWeatherCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -719,6 +733,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F849B272C3D853F0057BBC1 /* WeeklyWeatherCell.swift in Sources */,
 				7F8CF87C2BF0DDF40025D7EE /* NetworkService.swift in Sources */,
 				7FCA80962C3AC1E700D9B577 /* AllWeather.swift in Sources */,
 				7FF61B182C351AC300D5141D /* Disposable.swift in Sources */,
@@ -746,6 +761,7 @@
 				7F2732BB2C05EDBE00F9974E /* DefaultWeatherRepository.swift in Sources */,
 				7F2E1DB82C2594A100F93ACD /* BindingError.swift in Sources */,
 				7F2E1DA62C20717000F93ACD /* AllWeatherData.swift in Sources */,
+				7F849B2A2C3D8B250057BBC1 /* Then.swift in Sources */,
 				7F1343D92BFCA859009E9DBD /* HTTPError.swift in Sources */,
 				7FF61B112C3517E400D5141D /* ObserverType.swift in Sources */,
 				7F2E1DB62C20895A00F93ACD /* ConcreteFetchWeatherForCurrentLocationUseCase.swift in Sources */,
