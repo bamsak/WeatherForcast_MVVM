@@ -11,44 +11,32 @@ final class CurrentWeatherHeaderView: UICollectionReusableView {
     
     // MARK: - UIComponents
     
-    private let weatherIconView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    private let locationLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    private let minMaxTemperatureLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    
-    private let currentTemperatureLabel: UILabel = {
-        let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .largeTitle)
-        return label
-    }()
-    
-    private lazy var locationTemperaturStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [locationLabel, minMaxTemperatureLabel, currentTemperatureLabel])
-        stackView.axis = .vertical
-        stackView.alignment = .leading
-        stackView.distribution = .fillEqually
-        return stackView
-    }()
-    
-    private lazy var mainHeaderStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [weatherIconView, locationTemperaturStackView])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
-        stackView.spacing = 8
-        return stackView
-    }()
+    private let weatherIconView = UIImageView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    private let locationLabel = UILabel()
+    private let minMaxTemperatureLabel = UILabel()
+    private let currentTemperatureLabel = UILabel().then {
+        $0.font = .preferredFont(forTextStyle: .largeTitle)
+    }
+    private lazy var locationTemperaturStackView = UIStackView(arrangedSubviews: [
+        locationLabel,
+        minMaxTemperatureLabel,
+        currentTemperatureLabel
+    ]).then {
+        $0.axis = .vertical
+        $0.alignment = .leading
+        $0.distribution = .fillEqually
+    }
+    private lazy var mainHeaderStackView = UIStackView(arrangedSubviews: [
+        weatherIconView,
+        locationTemperaturStackView
+    ]).then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.axis = .horizontal
+        $0.distribution = .fill
+        $0.spacing = 8
+    }
     
     // MARK: - Initializer
 

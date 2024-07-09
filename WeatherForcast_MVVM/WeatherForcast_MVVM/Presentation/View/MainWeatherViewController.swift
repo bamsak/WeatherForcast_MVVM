@@ -15,11 +15,11 @@ final class MainWeatherViewController: UIViewController {
     
     // MARK: - UIComponents
     
-    private lazy var weatherCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
-    }()
+    private lazy var weatherCollectionView = UICollectionView(frame: .zero,
+                                                              collectionViewLayout: configureCollectionViewLayout()
+    ).then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
     
 
     // MARK: - Initializer
