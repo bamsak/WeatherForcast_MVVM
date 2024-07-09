@@ -54,7 +54,7 @@ final class CurrentWeatherHeaderView: UICollectionReusableView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureHeaderView()
+        setConstratintsHeaderView()
     }
 
     required init?(coder: NSCoder) {
@@ -102,7 +102,7 @@ private extension CurrentWeatherHeaderView {
 // MARK: - AutoLayout
 
 private extension CurrentWeatherHeaderView {
-    func configureHeaderView() {
+    func setConstratintsHeaderView() {
         addSubview(mainHeaderStackView)
         
         NSLayoutConstraint.activate([

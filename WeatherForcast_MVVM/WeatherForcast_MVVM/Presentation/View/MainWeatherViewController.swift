@@ -37,7 +37,23 @@ final class MainWeatherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        setConstratintsCollectionView()
+    }
+}
+
+// MARK: - Auto Layout
+
+private extension MainWeatherViewController {
+    func setConstratintsCollectionView() {
+        view.addSubview(weatherCollectionView)
+        
+        let safeArea = view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            weatherCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            weatherCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            weatherCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            weatherCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+        ])
     }
 }
 
