@@ -11,14 +11,10 @@ final class CurrentWeatherHeaderView: UICollectionReusableView {
     
     // MARK: - UIComponents
     
-    private let weatherIconView = UIImageView().then {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-    }
+    private let weatherIconView = UIImageView().then { $0.translatesAutoresizingMaskIntoConstraints = false }
     private let locationLabel = UILabel()
     private let minMaxTemperatureLabel = UILabel()
-    private let currentTemperatureLabel = UILabel().then {
-        $0.font = .preferredFont(forTextStyle: .largeTitle)
-    }
+    private let currentTemperatureLabel = UILabel().then { $0.font = .preferredFont(forTextStyle: .largeTitle) }
     private lazy var locationTemperaturStackView = UIStackView(arrangedSubviews: [
         locationLabel,
         minMaxTemperatureLabel,
