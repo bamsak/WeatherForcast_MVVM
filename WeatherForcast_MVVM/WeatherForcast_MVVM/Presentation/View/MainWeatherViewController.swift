@@ -12,6 +12,7 @@ final class MainWeatherViewController: UIViewController {
     // MARK: - stored Property
 
     private let mainWeatherViewModel: MainWeatherViewModel
+    private let allWeatherDataSource: AllWeatherDataSource
     
     // MARK: - UIComponents
     
@@ -38,6 +39,42 @@ final class MainWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setConstratintsCollectionView()
+    }
+}
+
+// MARK: - Type Alias
+
+private extension MainWeatherViewController {
+    typealias HeaderViewRegistration = UICollectionView.SupplementaryRegistration<CurrentWeatherHeaderView>
+    typealias CellRegistration = UICollectionView.CellRegistration<WeeklyWeatherCell, Presentation.AllWeather.WeeklyWeatherModel.List>
+    typealias AllWeatherDataSource = UICollectionViewDiffableDataSource<Section, Presentation.AllWeather>
+}
+
+
+// MARK: - NestedType
+
+private extension MainWeatherViewController {
+    enum Section: Int, CaseIterable {
+        case currenWeather
+        case weeklyWeather
+    }
+}
+
+// MARK: - Configure Registration Method
+
+private extension MainWeatherViewController {
+    func configureHeaderViewRegistration() -> HeaderViewRegistration {
+        return .init(elementKind: UICollectionView.elementKindSectionHeader) { [weak self] supplementaryView, _, indexPath in
+            guard let self = self,
+                  let item = self.allWeatherDataSource.snapshot().itemIdentifiers(inSection: .currenWeather).last
+            else {
+                return
+            }
+            let section = Section(rawValue: indexPath.row)
+            if section == .currenWeather {
+                supplementaryView.updateUI(with: item.currentWeather)
+            }
+        }
     }
 }
 
