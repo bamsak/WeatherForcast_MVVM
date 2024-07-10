@@ -19,7 +19,7 @@ extension Presentation.AllWeather.WeeklyWeatherModel {
     struct List {
         let dateText: String
         let weather: CommonWeather.Weather
-        let temperature: CommonWeather.TemperatureDetail
+        let temperatureDetail: CommonWeather.TemperatureDetail
         
         init(
             dataTime: Int,
@@ -28,7 +28,7 @@ extension Presentation.AllWeather.WeeklyWeatherModel {
         ) {
             self.dateText = dataTime.toFormattedDate()
             self.weather = weather
-            self.temperature = temperature
+            self.temperatureDetail = temperature
         }
     }
 }
