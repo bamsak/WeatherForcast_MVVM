@@ -12,7 +12,7 @@ final class MainWeatherViewController: UIViewController {
     // MARK: - stored Property
 
     private let mainWeatherViewModel: MainWeatherViewModel
-    private let allWeatherDataSource: AllWeatherDataSource
+    private lazy var allWeatherDataSource = configureDataSource()
     
     // MARK: - UIComponents
     
@@ -60,7 +60,24 @@ private extension MainWeatherViewController {
     }
 }
 
-// MARK: - Configure Registration Method
+// MARK: - Configure DataSource
+
+private extension MainWeatherViewController {
+    func configureDataSource() -> AllWeatherDataSource {
+        let headerViewRegistration = configureHeaderViewRegistration()
+        let cellRegistration = configureCellRegistration()
+        
+        let dataSource = AllWeatherDataSource(collectionView: weatherCollectionView) { collectionView, indexPath, item in
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item.weeklyWeather.list[indexPath.row])
+        }
+        dataSource.supplementaryViewProvider = { collectionView, elementKind, indexPath in
+            return collectionView.dequeueConfiguredReusableSupplementary(using: headerViewRegistration, for: indexPath)
+        }
+        return dataSource
+    }
+}
+
+// MARK: - Configure Registration
 
 private extension MainWeatherViewController {
     func configureHeaderViewRegistration() -> HeaderViewRegistration {
@@ -78,10 +95,10 @@ private extension MainWeatherViewController {
     }
     
     func configureCellRegistration() -> CellRegistration {
-        return .init { cell, indexPath, itemIdentifier in
+        return .init { cell, indexPath, item in
             let section = Section(rawValue: indexPath.row)
             if section == .weeklyWeather {
-                cell.updateUI(itemIdentifier)
+                cell.updateUI(item)
             }
         }
     }
