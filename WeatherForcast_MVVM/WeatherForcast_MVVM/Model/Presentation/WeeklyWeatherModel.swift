@@ -32,3 +32,8 @@ extension Presentation.AllWeather.WeeklyWeatherModel {
         }
     }
 }
+
+// MARK: - Hashable
+
+extension Presentation.AllWeather.WeeklyWeatherModel: Hashable { }
+extension Presentation.AllWeather.WeeklyWeatherModel.List: Hashable { }

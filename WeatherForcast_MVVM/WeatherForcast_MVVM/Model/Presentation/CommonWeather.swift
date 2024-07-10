@@ -37,3 +37,8 @@ extension Presentation.AllWeather.CommonWeather {
         }
     }
 }
+
+// MARK: - Hashable
+
+extension Presentation.AllWeather.CommonWeather.Weather: Hashable { }
+extension Presentation.AllWeather.CommonWeather.TemperatureDetail: Hashable { }

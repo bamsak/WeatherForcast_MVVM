@@ -14,3 +14,7 @@ extension Presentation {
         let weeklyWeather: WeeklyWeatherModel
     }
 }
+
+// MARK: - Hashable
+
+extension Presentation.AllWeather: Hashable { }
