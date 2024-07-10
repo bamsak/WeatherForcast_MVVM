@@ -15,13 +15,31 @@ final class WeeklyWeatherCell: UICollectionViewCell {
     private let temperatureLabel = UILabel().then { $0.translatesAutoresizingMaskIntoConstraints = false }
     private let weatherIconView = UIImageView().then { $0.translatesAutoresizingMaskIntoConstraints = false }
     
+    // MARK: - Initializer
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureCell()
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Method
+    
+    func updateUI(_ weeklyWeatherList: WeeklyWeatherList) {
+        dateTextLabel.text = weeklyWeatherList.dateText
+        temperatureLabel.text = weeklyWeatherList.temperatureDetail.temperature
+        weatherIconView.image = UIImage(data: weeklyWeatherList.weather.iconData)
+    }
+}
+
+
+// MARK: - Type Ailas
+
+extension WeeklyWeatherCell {
+    typealias WeeklyWeatherList = Presentation.AllWeather.WeeklyWeatherModel.List
 }
 
 // MARK: - Auto Layout
