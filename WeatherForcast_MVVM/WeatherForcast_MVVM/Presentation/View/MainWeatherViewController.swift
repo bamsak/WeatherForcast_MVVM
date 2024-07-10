@@ -76,6 +76,15 @@ private extension MainWeatherViewController {
             }
         }
     }
+    
+    func configureCellRegistration() -> CellRegistration {
+        return .init { cell, indexPath, itemIdentifier in
+            let section = Section(rawValue: indexPath.row)
+            if section == .weeklyWeather {
+                cell.updateUI(itemIdentifier)
+            }
+        }
+    }
 }
 
 // MARK: - Auto Layout
