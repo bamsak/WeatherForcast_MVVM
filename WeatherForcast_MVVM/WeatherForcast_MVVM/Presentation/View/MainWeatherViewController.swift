@@ -20,10 +20,16 @@ final class MainWeatherViewController: UIViewController {
     private lazy var weatherCollectionView = UICollectionView(frame: .zero,
                                                               collectionViewLayout: configureCollectionViewLayout()
     ).then {
+        $0.backgroundColor = .clear
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-
+    private lazy var backgroundImage = UIImageView().then {
+        $0.image = UIImage(named: "backgroundImage")
+        $0.contentMode = .scaleAspectFill
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     // MARK: - Initializer
 
     init(mainWeatherViewModel: MainWeatherViewModel) {
@@ -40,7 +46,8 @@ final class MainWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setConstratintsCollectionView()
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
+        configueBackgroundImage()
         weeklyWeatherDataSource = configureDataSource()
         
         disposable = mainWeatherViewModel.fetchWeather()
@@ -136,6 +143,17 @@ private extension MainWeatherViewController {
             weatherCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             weatherCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             weatherCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+        ])
+    }
+    
+    func configueBackgroundImage() {
+        view.insertSubview(backgroundImage, at: 0)
+        
+        NSLayoutConstraint.activate([
+            backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
 }
