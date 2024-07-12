@@ -13,6 +13,7 @@ final class MainWeatherViewController: UIViewController {
 
     private let mainWeatherViewModel: MainWeatherViewModel
     private var weeklyWeatherDataSource: WeeklyWeatherDataSource?
+    private var disposable: Disposable?
     
     // MARK: - UIComponents
     
@@ -39,7 +40,15 @@ final class MainWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setConstratintsCollectionView()
+        view.backgroundColor = .white
         weeklyWeatherDataSource = configureDataSource()
+        
+        disposable = mainWeatherViewModel.fetchWeather()
+            .subscribe(onNext: { [weak self] weather in
+                self?.configureSnapShot(weather)
+            }, onError: { error in
+                print(error)
+            })
     }
 }
 
