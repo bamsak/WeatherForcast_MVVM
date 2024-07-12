@@ -12,7 +12,7 @@ final class MainWeatherViewController: UIViewController {
     // MARK: - stored Property
 
     private let mainWeatherViewModel: MainWeatherViewModel
-    private lazy var allWeatherDataSource = configureDataSource()
+    private var allWeatherDataSource: WeeklyWeatherDataSource?
     
     // MARK: - UIComponents
     
@@ -47,7 +47,7 @@ final class MainWeatherViewController: UIViewController {
 private extension MainWeatherViewController {
     typealias HeaderViewRegistration = UICollectionView.SupplementaryRegistration<CurrentWeatherHeaderView>
     typealias CellRegistration = UICollectionView.CellRegistration<WeeklyWeatherCell, Presentation.AllWeather.WeeklyWeatherModel.List>
-    typealias AllWeatherDataSource = UICollectionViewDiffableDataSource<Section, Presentation.AllWeather>
+    typealias WeeklyWeatherDataSource = UICollectionViewDiffableDataSource<Section, Presentation.AllWeather.WeeklyWeatherModel.List>
 }
 
 
@@ -69,12 +69,12 @@ private extension MainWeatherViewController {
 // MARK: - Configure DataSource
 
 private extension MainWeatherViewController {
-    func configureDataSource() -> AllWeatherDataSource {
+    func configureDataSource() -> WeeklyWeatherDataSource {
         let headerViewRegistration = configureHeaderViewRegistration()
         let cellRegistration = configureCellRegistration()
         
-        let dataSource = AllWeatherDataSource(collectionView: weatherCollectionView) { collectionView, indexPath, item in
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item.weeklyWeather.list[indexPath.row])
+        let dataSource = WeeklyWeatherDataSource(collectionView: weatherCollectionView) { collectionView, indexPath, item in
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         }
         dataSource.supplementaryViewProvider = { collectionView, elementKind, indexPath in
             return collectionView.dequeueConfiguredReusableSupplementary(using: headerViewRegistration, for: indexPath)
