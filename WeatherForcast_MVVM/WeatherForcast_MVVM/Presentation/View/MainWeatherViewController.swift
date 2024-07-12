@@ -61,7 +61,6 @@ private extension MainWeatherViewController {
     typealias WeeklyWeatherSnapShot = NSDiffableDataSourceSnapshot<Section, Presentation.AllWeather.WeeklyWeatherModel.List>
 }
 
-
 // MARK: - NestedType
 
 private extension MainWeatherViewController {
@@ -114,7 +113,6 @@ private extension MainWeatherViewController {
             else {
                 return
             }
-            
             supplementaryView.updateUI(with: currentWeather)
         }
     }

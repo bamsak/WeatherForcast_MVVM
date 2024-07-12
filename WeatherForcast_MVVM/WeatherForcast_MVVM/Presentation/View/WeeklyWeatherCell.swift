@@ -58,24 +58,22 @@ private extension WeeklyWeatherCell {
     func setConstraintsDateTextLabel() {
         NSLayoutConstraint.activate([
             dateTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            dateTextLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            dateTextLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            dateTextLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
     
     func setConstraintsTemperatureLabel() {
         NSLayoutConstraint.activate([
             temperatureLabel.trailingAnchor.constraint(equalTo: weatherIconView.leadingAnchor),
-            temperatureLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            temperatureLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            temperatureLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
     
     func setConstraintsWeatherIconView() {
         NSLayoutConstraint.activate([
             weatherIconView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            weatherIconView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            weatherIconView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            weatherIconView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            weatherIconView.heightAnchor.constraint(equalToConstant: contentView.frame.size.height + 10),
             weatherIconView.widthAnchor.constraint(equalTo: weatherIconView.heightAnchor)
         ])
     }

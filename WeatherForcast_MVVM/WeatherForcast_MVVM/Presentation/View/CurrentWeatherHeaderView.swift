@@ -74,7 +74,7 @@ private extension CurrentWeatherHeaderView {
         else {
             return city
         }
-        return city + district
+        return city + " \(district)"
     }
     
     func minMaxTemperatureLabelText(_ temperature: TemperatureDetail) -> String {
