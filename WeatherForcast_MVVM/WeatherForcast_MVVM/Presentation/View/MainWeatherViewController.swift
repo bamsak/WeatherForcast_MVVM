@@ -54,9 +54,15 @@ private extension MainWeatherViewController {
 // MARK: - NestedType
 
 private extension MainWeatherViewController {
-    enum Section: Int, CaseIterable {
-        case currenWeather
-        case weeklyWeather
+    enum Section: Hashable {
+        case main(_ currentWeather: Presentation.AllWeather.CurrentWeatherModel)
+        
+        var weather: Presentation.AllWeather.CurrentWeatherModel {
+            switch self {
+            case .main(let currentWeather):
+                return currentWeather
+            }
+        }
     }
 }
 
@@ -82,24 +88,12 @@ private extension MainWeatherViewController {
 private extension MainWeatherViewController {
     func configureHeaderViewRegistration() -> HeaderViewRegistration {
         return .init(elementKind: UICollectionView.elementKindSectionHeader) { [weak self] supplementaryView, _, indexPath in
-            guard let self = self,
-                  let item = self.allWeatherDataSource.snapshot().itemIdentifiers(inSection: .currenWeather).last
-            else {
-                return
-            }
-            let section = Section(rawValue: indexPath.row)
-            if section == .currenWeather {
-                supplementaryView.updateUI(with: item.currentWeather)
-            }
         }
     }
     
     func configureCellRegistration() -> CellRegistration {
         return .init { cell, indexPath, item in
-            let section = Section(rawValue: indexPath.row)
-            if section == .weeklyWeather {
-                cell.updateUI(item)
-            }
+            cell.updateUI(item)
         }
     }
 }
