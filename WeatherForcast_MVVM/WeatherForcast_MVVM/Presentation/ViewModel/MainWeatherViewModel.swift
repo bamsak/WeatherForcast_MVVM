@@ -32,6 +32,20 @@ final class MainWeatherViewModel {
         self.weatherObservable = observable
         return observable
     }
+    
+    func updateWeather(_ uiUpdateHandler: @escaping @MainActor () -> Void) {
+        Task {
+            do {
+                let weatherData = try await fetchWeatherForCurrentUseCase.excute()
+                let presentaionWeather = self.convertToPresentationWeatherModel(with: weatherData)
+                weatherObservable?.emit(.onNext(presentaionWeather))
+                await uiUpdateHandler()
+            } catch {
+                weatherObservable?.emit(.onError(error))
+                await uiUpdateHandler()
+            }
+        }
+    }
 }
 
 

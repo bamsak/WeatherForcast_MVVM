@@ -22,6 +22,8 @@ final class MainWeatherViewController: UIViewController {
     ).then {
         $0.backgroundColor = .clear
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.refreshControl = UIRefreshControl()
+        $0.refreshControl?.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
     }
     
     private lazy var backgroundImage = UIImageView().then {
@@ -46,7 +48,6 @@ final class MainWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setConstratintsCollectionView()
-//        view.backgroundColor = .white
         configueBackgroundImage()
         weeklyWeatherDataSource = configureDataSource()
         
@@ -56,6 +57,16 @@ final class MainWeatherViewController: UIViewController {
             }, onError: { error in
                 print(error)
             })
+    }
+}
+
+// MARK: - Action Handler
+
+private extension MainWeatherViewController {
+    @objc func refreshAction() {
+        mainWeatherViewModel.updateWeather { [weak self]  in
+            self?.weatherCollectionView.refreshControl?.endRefreshing()
+        }
     }
 }
 
