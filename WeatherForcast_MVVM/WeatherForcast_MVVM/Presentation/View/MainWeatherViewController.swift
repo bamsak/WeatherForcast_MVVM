@@ -12,7 +12,7 @@ final class MainWeatherViewController: UIViewController {
     // MARK: - stored Property
 
     private let mainWeatherViewModel: MainWeatherViewModel
-    private var allWeatherDataSource: WeeklyWeatherDataSource?
+    private var weeklyWeatherDataSource: WeeklyWeatherDataSource?
     
     // MARK: - UIComponents
     
@@ -39,6 +39,7 @@ final class MainWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setConstratintsCollectionView()
+        weeklyWeatherDataSource = configureDataSource()
     }
 }
 
@@ -48,6 +49,7 @@ private extension MainWeatherViewController {
     typealias HeaderViewRegistration = UICollectionView.SupplementaryRegistration<CurrentWeatherHeaderView>
     typealias CellRegistration = UICollectionView.CellRegistration<WeeklyWeatherCell, Presentation.AllWeather.WeeklyWeatherModel.List>
     typealias WeeklyWeatherDataSource = UICollectionViewDiffableDataSource<Section, Presentation.AllWeather.WeeklyWeatherModel.List>
+    typealias WeeklyWeatherSnapShot = NSDiffableDataSourceSnapshot<Section, Presentation.AllWeather.WeeklyWeatherModel.List>
 }
 
 
@@ -63,6 +65,17 @@ private extension MainWeatherViewController {
                 return currentWeather
             }
         }
+    }
+}
+
+// MARK: - SnapShot
+
+private extension MainWeatherViewController {
+    func configureSnapShot(_ allWeather: Presentation.AllWeather) {
+        var snapShot = WeeklyWeatherSnapShot()
+        snapShot.appendSections([.main(allWeather.currentWeather)])
+        snapShot.appendItems(allWeather.weeklyWeather.list)
+        weeklyWeatherDataSource?.apply(snapShot)
     }
 }
 
@@ -88,6 +101,12 @@ private extension MainWeatherViewController {
 private extension MainWeatherViewController {
     func configureHeaderViewRegistration() -> HeaderViewRegistration {
         return .init(elementKind: UICollectionView.elementKindSectionHeader) { [weak self] supplementaryView, _, indexPath in
+            guard let currentWeather = self?.weeklyWeatherDataSource?.snapshot().sectionIdentifiers[indexPath.section].weather
+            else {
+                return
+            }
+            
+            supplementaryView.updateUI(with: currentWeather)
         }
     }
     
