@@ -59,7 +59,6 @@ final class CurrentWeatherHeaderView: UICollectionReusableView {
 
 extension CurrentWeatherHeaderView {
     typealias CurrentWeather = Presentation.AllWeather.CurrentWeatherModel
-    fileprivate typealias TemperatureDetail = Presentation.AllWeather.CommonWeather.TemperatureDetail
 }
 
 // MARK: - AutoLayout
