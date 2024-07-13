@@ -49,7 +49,7 @@ final class CurrentWeatherHeaderView: UICollectionReusableView {
 
     func updateUI(with currentWeather: CurrentWeather) {
         weatherIconView.image = UIImage(data: currentWeather.weather.iconData)
-        locationLabel.text = locationLabelText(currentWeather.location)
+        locationLabel.text = currentWeather.location
         minMaxTemperatureLabel.text = minMaxTemperatureLabelText(currentWeather.temperaturDetail)
         currentTemperatureLabel.text = currentWeather.temperaturDetail.temperature
     }
@@ -65,18 +65,6 @@ extension CurrentWeatherHeaderView {
 // MARK: - Private Method
 
 private extension CurrentWeatherHeaderView {
-    func locationLabelText(_ location: CurrentWeather.Location) -> String? {
-        guard let city = location.city
-        else {
-            return nil
-        }
-        guard let district = location.district
-        else {
-            return city
-        }
-        return city + " \(district)"
-    }
-    
     func minMaxTemperatureLabelText(_ temperature: TemperatureDetail) -> String {
         return "최저 \(temperature.minimumTemperature) 최고 \(temperature.maximumTemperature)"
     }

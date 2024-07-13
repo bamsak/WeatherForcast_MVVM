@@ -62,7 +62,6 @@ private extension MainWeatherViewModel {
     // MARK: - Presentation
     
     typealias PresentationCurrentWeather = Presentation.AllWeather.CurrentWeatherModel
-    typealias PresentationLocation = Presentation.AllWeather.CurrentWeatherModel.Location
     typealias PresentationCommonWeather = Presentation.AllWeather.CommonWeather
     typealias PresentationWeeklyWeather = Presentation.AllWeather.WeeklyWeatherModel
 }
@@ -79,7 +78,7 @@ private extension MainWeatherViewModel {
     
     func convertToPresentationCurrentWeather(from currentWeather: EntityCurrentWeather,
                                              with location: EntityLocation) -> PresentationCurrentWeather {
-        let location = PresentationLocation(city: location.city, district: location.district)
+        let location = convertToLocationText(location)
         let weather = PresentationCommonWeather.Weather(main: currentWeather.weather.main,
                                                         description: currentWeather.weather.description,
                                                         iconData: currentWeather.weather.iconData)
@@ -94,6 +93,18 @@ private extension MainWeatherViewModel {
                      weather: weather,
                      temperaturDetail: temperature,
                      dataTime: currentWeather.dataTime)
+    }
+    
+    func convertToLocationText(_ location: EntityLocation) -> String? {
+        guard let city = location.city
+        else {
+            return nil
+        }
+        guard let district = location.district
+        else {
+            return city
+        }
+        return city + " \(district)"
     }
     
     func converToPresentaionWeeklyWeather(from weeklyWeather: EntityWeeklyWeather) -> PresentationWeeklyWeather {

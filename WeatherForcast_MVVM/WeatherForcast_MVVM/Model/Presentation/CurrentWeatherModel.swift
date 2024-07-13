@@ -7,17 +7,10 @@
 
 extension Presentation.AllWeather {
     struct CurrentWeatherModel {
-        let location: Location
+        let location: String?
         let weather: CommonWeather.Weather
         let temperaturDetail: CommonWeather.TemperatureDetail
         let dataTime: Int
-    }
-}
-
-extension Presentation.AllWeather.CurrentWeatherModel {
-    struct Location {
-        let city: String?
-        let district: String?
     }
 }
 
@@ -30,4 +23,3 @@ extension Presentation.AllWeather.CurrentWeatherModel: Hashable {
         hasher.combine(temperaturDetail)
     }
 }
-extension Presentation.AllWeather.CurrentWeatherModel.Location: Hashable { }
