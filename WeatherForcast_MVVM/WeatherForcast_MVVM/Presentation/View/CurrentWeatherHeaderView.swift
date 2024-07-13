@@ -50,8 +50,8 @@ final class CurrentWeatherHeaderView: UICollectionReusableView {
     func updateUI(with currentWeather: CurrentWeather) {
         weatherIconView.image = UIImage(data: currentWeather.weather.iconData)
         locationLabel.text = currentWeather.location
-        minMaxTemperatureLabel.text = minMaxTemperatureLabelText(currentWeather.temperaturDetail)
-        currentTemperatureLabel.text = currentWeather.temperaturDetail.temperature
+        minMaxTemperatureLabel.text = minMaxTemperatureLabelText(currentWeather.temperatureDetail)
+        currentTemperatureLabel.text = currentWeather.temperatureDetail.temperature
     }
 }
 

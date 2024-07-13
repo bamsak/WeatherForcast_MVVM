@@ -91,7 +91,7 @@ private extension MainWeatherViewModel {
         
         return .init(location: location,
                      weather: weather,
-                     temperaturDetail: temperature,
+                     temperatureDetail: temperature,
                      dataTime: currentWeather.dataTime)
     }
     

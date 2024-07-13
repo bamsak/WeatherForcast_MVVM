@@ -9,7 +9,7 @@ extension Presentation.AllWeather {
     struct CurrentWeatherModel {
         let location: String?
         let weather: CommonWeather.Weather
-        let temperaturDetail: CommonWeather.TemperatureDetail
+        let temperatureDetail: CommonWeather.TemperatureDetail
         let dataTime: Int
     }
 }
@@ -20,6 +20,6 @@ extension Presentation.AllWeather.CurrentWeatherModel: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(location)
         hasher.combine(weather)
-        hasher.combine(temperaturDetail)
+        hasher.combine(temperatureDetail)
     }
 }
