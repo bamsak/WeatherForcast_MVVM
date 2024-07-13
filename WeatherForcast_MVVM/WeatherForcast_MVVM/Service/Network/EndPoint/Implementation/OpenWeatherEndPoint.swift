@@ -47,7 +47,8 @@ extension OpenWeatherEndPoint: APIEndPoint {
                 }
                 return [URLQueryItem(name: "lat", value: "\(latitude)"),
                         URLQueryItem(name: "lon", value: "\(longitude)"),
-                        URLQueryItem(name: "appid", value: apiKey)]
+                        URLQueryItem(name: "appid", value: apiKey),
+                        URLQueryItem(name: "units", value: "metric")]
             case .icon:
                 return nil
             }

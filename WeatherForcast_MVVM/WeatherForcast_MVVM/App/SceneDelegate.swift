@@ -8,13 +8,14 @@
 import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
-
+    
+    private let appEnvironment = AppEnvironment.shared
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windwScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windwScene)
-        window?.rootViewController = ViewController()
+        window?.rootViewController = appEnvironment.mainWeatherViewController
         window?.makeKeyAndVisible()
     }
 
