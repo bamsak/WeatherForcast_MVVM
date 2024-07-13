@@ -30,7 +30,7 @@ final class WeeklyWeatherCell: UICollectionViewCell {
     
     func updateUI(_ weeklyWeatherList: WeeklyWeatherList) {
         dateTextLabel.text = weeklyWeatherList.dateText
-        temperatureLabel.text = weeklyWeatherList.temperatureDetail.temperature
+        temperatureLabel.text = weeklyWeatherList.temperatureDetail.currentTemperature
         weatherIconView.image = UIImage(data: weeklyWeatherList.weather.iconData)
     }
 }

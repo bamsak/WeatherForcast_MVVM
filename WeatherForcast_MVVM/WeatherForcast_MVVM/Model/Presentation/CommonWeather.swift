@@ -19,21 +19,26 @@ extension Presentation.AllWeather {
 
 extension Presentation.AllWeather.CommonWeather {
     struct TemperatureDetail {
-        let temperature: String
-        let feelsLikeTemperature: String
-        let minimumTemperature: String
-        let maximumTemperature: String
+        let currentTemperature: String
+        let minMaxTemperature: String?
         
         init(
-            temperature: Double,
-            feelsLikeTemperature: Double,
+            currentTemperature: Double,
             minimumTemperature: Double,
             maximumTemperature: Double
         ) {
-            self.temperature = String(format: "%.1f", temperature)
-            self.feelsLikeTemperature = String(format: "%.1f", feelsLikeTemperature)
-            self.minimumTemperature = String(format: "%.1f", minimumTemperature)
-            self.maximumTemperature = String(format: "%.1f", maximumTemperature)
+            self.currentTemperature = String(format: "%.1f", currentTemperature) + "°"
+            let minimumTemperature = String(format: "%.1f", minimumTemperature)
+            let maximumTemperature = String(format: "%.1f", maximumTemperature)
+            self.minMaxTemperature = "최저 \(minimumTemperature)° 최고 \(maximumTemperature)°"
+        }
+        
+        init(
+            currentTemperature: Double,
+            minMaxTemperature: String? = nil
+        ) {
+            self.currentTemperature = String(format: "%.1f", currentTemperature) + "°"
+            self.minMaxTemperature = minMaxTemperature
         }
     }
 }

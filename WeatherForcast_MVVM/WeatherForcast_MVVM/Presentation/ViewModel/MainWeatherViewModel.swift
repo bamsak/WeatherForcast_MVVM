@@ -83,8 +83,7 @@ private extension MainWeatherViewModel {
                                                         description: currentWeather.weather.description,
                                                         iconData: currentWeather.weather.iconData)
         let temperature = PresentationCommonWeather.TemperatureDetail(
-            temperature: currentWeather.temperatureDetail.temperature,
-            feelsLikeTemperature: currentWeather.temperatureDetail.feelsLikeTemperature,
+            currentTemperature: currentWeather.temperatureDetail.temperature,
             minimumTemperature: currentWeather.temperatureDetail.minimumTemperature,
             maximumTemperature: currentWeather.temperatureDetail.maximumTemperature
         )
@@ -113,10 +112,7 @@ private extension MainWeatherViewModel {
                                                             description: $0.weather.description,
                                                             iconData: $0.weather.iconData)
             let temperature = PresentationCommonWeather.TemperatureDetail(
-                temperature: $0.temperatureDetail.temperature,
-                feelsLikeTemperature: $0.temperatureDetail.feelsLikeTemperature,
-                minimumTemperature: $0.temperatureDetail.minimumTemperature,
-                maximumTemperature: $0.temperatureDetail.maximumTemperature
+                currentTemperature: $0.temperatureDetail.temperature
             )
             
             return .init(dataTime: $0.dataTime,
