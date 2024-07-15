@@ -377,7 +377,7 @@ API 명세에 따르면 날씨 데이터를 받아온 뒤, 받아온 날씨 데�
     - 날씨 iconData에 대해 Memory Cache를 해주는 객체 입니다.
 
 ### Model (Presentaion, DTO, Entity)
-
+---
 - DTO
     - 네트워크 통신으로 받은 데이터를 JSONDecoder를 통해 반환될 DTO 타입입니다. (Data Layer)
 - Entity (Repository)
@@ -386,6 +386,15 @@ API 명세에 따르면 날씨 데이터를 받아온 뒤, 받아온 날씨 데�
     - UseCase가 반환할 Entity로 Repository에서 반환된 Entity를 조합하여 필요한 부분에 반환될 수 있도록 합니다.
 - Presentation
     - View에 보여질 Model로 기존에 Entity에서 해당 뷰에 보여지기 위한 타입이나 내용으로 변환되어 해당 모델로 반환 해줍니다.
+
+### ETC.
+
+---
+
+- Then
+    - UI Component의 속성을 지정해주기 편하게 하기 위해 Then 라이브러리를 참고하여 구현했습니다.
+- AppEnvironment
+    - Factory 패턴을 활용하여, rootView를 구성하는 데에 필요한 요소들을 의존성 주입을 통해 ViewController를 반환해주는 역할을 해줍니다.
 
 ## 지난 PR 기록
 
