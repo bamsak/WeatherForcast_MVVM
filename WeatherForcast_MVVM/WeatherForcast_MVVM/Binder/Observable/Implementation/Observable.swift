@@ -25,7 +25,7 @@ final class Observable<Element> {
 extension Observable: ObservableType {
     func subscribe(_ observer: Observer<Element>) -> Disposable {
         observers[observer.id] = observer
-        observer.removeAction = { [weak self] in
+        observer.configureRemoveAction { [weak self] in
             self?.observers.removeValue(forKey: observer.id)
         }
         return subscribeHandler(observer)

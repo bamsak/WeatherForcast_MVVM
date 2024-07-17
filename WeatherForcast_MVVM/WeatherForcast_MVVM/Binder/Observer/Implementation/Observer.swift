@@ -9,12 +9,16 @@ import Foundation
 
 final class Observer<Element> {
     let id: UUID = UUID()
-    var removeAction: (() -> Void)?
     
     private let eventHandler: (Event<Element>) -> Void
+    private(set) var removeAction: (() -> Void)?
     
     init(eventHandler: @escaping (Event<Element>) -> Void) {
         self.eventHandler = eventHandler
+    }
+    
+    func configureRemoveAction(_ handler: @escaping () -> Void) {
+        removeAction = handler
     }
 }
 
