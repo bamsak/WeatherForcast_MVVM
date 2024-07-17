@@ -332,7 +332,7 @@ API 명세에 따르면 날씨 데이터를 받아온 뒤, 받아온 날씨 데�
     - DiffableDataSource와 Compositional Layout을 활용한 Header 및 List로 CollectionView를 구성하여, 사용자에게  날씨 정보를 보여줍니다.
 - ViewModel
     - UseCase에서 반환된 Entity를 View에 보여주기 위한 PresentaionModel로 매핑하여 View에 DataBinding을 해줍니다.
-- PreSentationModel
+- PresentationModel
     - View에 보여질 모델을 담당합니다.
 
 ### UseCase
